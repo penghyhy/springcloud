@@ -1,0 +1,857 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.penghy.server.mapper.DrugDictMapper">
+
+    <!-- 基本列 -->
+    <sql id="baseColumnList">
+        id,dict_book_id,insure_drug_code,drug_standard_code,drug_chinese_name,drug_chem_name,drug_english_name,insure_drug_spec,drug_dosage_form,charge_item_code,charge_item_name,drug_factory_name,drug_package_unit,insu_drug_type,drug_min_dose,min_dose_unit,drug_min_unit,drug_daily_dosage,drug_usage_frequency,drug_usage_method,item_apply_scope,insure_drug_grade,drug_remark,prescription_usage_flag,standard_usage_posts,drug_standard_price,oi_flag,outpatient_price_quota,inpatient_price_quota,outpatient_usage_quota,inpatient_usage_quota,drug_each_dose,item_limit_flag,item_approval_style,drug_swicth_scale,use_start_time,use_end_time,delete_flag,orderby,search_code1,search_code2,search_code3,create_time,creator,update_time,updater,drug_texture
+    </sql>
+
+    <!-- 查询条件 -->
+    <sql id="whereColumnList">
+        <where>
+            <if test="dictBookId != null">
+                and dict_book_id = #{dictBookId}
+            </if>
+            <if test="insureDrugCode != null">
+                and insure_drug_code = #{insureDrugCode}
+            </if>
+            <if test="drugStandardCode != null">
+                and drug_standard_code = #{drugStandardCode}
+            </if>
+            <if test="drugChineseName != null">
+                and drug_chinese_name = #{drugChineseName}
+            </if>
+            <if test="drugChemName != null">
+                and drug_chem_name = #{drugChemName}
+            </if>
+            <if test="drugEnglishName != null">
+                and drug_english_name = #{drugEnglishName}
+            </if>
+            <if test="insureDrugSpec != null">
+                and insure_drug_spec = #{insureDrugSpec}
+            </if>
+            <if test="drugDosageForm != null">
+                and drug_dosage_form = #{drugDosageForm}
+            </if>
+            <if test="chargeItemCode != null">
+                and charge_item_code = #{chargeItemCode}
+            </if>
+            <if test="chargeItemName != null">
+                and charge_item_name = #{chargeItemName}
+            </if>
+            <if test="drugFactoryName != null">
+                and drug_factory_name = #{drugFactoryName}
+            </if>
+            <if test="drugPackageUnit != null">
+                and drug_package_unit = #{drugPackageUnit}
+            </if>
+            <if test="insuDrugType != null">
+                and insu_drug_type = #{insuDrugType}
+            </if>
+            <if test="drugMinDose != null">
+                and drug_min_dose = #{drugMinDose}
+            </if>
+            <if test="minDoseUnit != null">
+                and min_dose_unit = #{minDoseUnit}
+            </if>
+            <if test="drugMinUnit != null">
+                and drug_min_unit = #{drugMinUnit}
+            </if>
+            <if test="drugDailyDosage != null">
+                and drug_daily_dosage = #{drugDailyDosage}
+            </if>
+            <if test="drugUsageFrequency != null">
+                and drug_usage_frequency = #{drugUsageFrequency}
+            </if>
+            <if test="drugUsageMethod != null">
+                and drug_usage_method = #{drugUsageMethod}
+            </if>
+            <if test="itemApplyScope != null">
+                and item_apply_scope = #{itemApplyScope}
+            </if>
+            <if test="insureDrugGrade != null">
+                and insure_drug_grade = #{insureDrugGrade}
+            </if>
+            <if test="drugRemark != null">
+                and drug_remark = #{drugRemark}
+            </if>
+            <if test="prescriptionUsageFlag != null">
+                and prescription_usage_flag = #{prescriptionUsageFlag}
+            </if>
+            <if test="standardUsagePosts != null">
+                and standard_usage_posts = #{standardUsagePosts}
+            </if>
+            <if test="drugStandardPrice != null">
+                and drug_standard_price = #{drugStandardPrice}
+            </if>
+            <if test="oiFlag != null">
+                and oi_flag = #{oiFlag}
+            </if>
+            <if test="outpatientPriceQuota != null">
+                and outpatient_price_quota = #{outpatientPriceQuota}
+            </if>
+            <if test="inpatientPriceQuota != null">
+                and inpatient_price_quota = #{inpatientPriceQuota}
+            </if>
+            <if test="outpatientUsageQuota != null">
+                and outpatient_usage_quota = #{outpatientUsageQuota}
+            </if>
+            <if test="inpatientUsageQuota != null">
+                and inpatient_usage_quota = #{inpatientUsageQuota}
+            </if>
+            <if test="drugEachDose != null">
+                and drug_each_dose = #{drugEachDose}
+            </if>
+            <if test="itemLimitFlag != null">
+                and item_limit_flag = #{itemLimitFlag}
+            </if>
+            <if test="itemApprovalStyle != null">
+                and item_approval_style = #{itemApprovalStyle}
+            </if>
+            <if test="drugSwicthScale != null">
+                and drug_swicth_scale = #{drugSwicthScale}
+            </if>
+            <if test="useStartTime != null">
+                and use_start_time = #{useStartTime}
+            </if>
+            <if test="useEndTime != null">
+                and use_end_time = #{useEndTime}
+            </if>
+            <if test="deleteFlag != null">
+                and delete_flag = #{deleteFlag}
+            </if>
+            <if test="orderby != null">
+                and orderby = #{orderby}
+            </if>
+            <if test="searchCode1 != null">
+                and search_code1 = #{searchCode1}
+            </if>
+            <if test="searchCode2 != null">
+                and search_code2 = #{searchCode2}
+            </if>
+            <if test="searchCode3 != null">
+                and search_code3 = #{searchCode3}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="creator != null">
+                and creator = #{creator}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="updater != null">
+                and updater = #{updater}
+            </if>
+
+        </where>
+    </sql>
+
+    <resultMap id="columnMap" type="map">
+        <id column="id" property="id"/>
+        <result column="dict_book_id" property="dictBookId"/>
+        <result column="insure_drug_code" property="insureItemCode"/>
+        <result column="drug_standard_code" property="drugStandardCode"/>
+        <result column="drug_Chinese_name" property="insureItemName"/>
+        <result column="drug_chem_name" property="drugChemName"/>
+        <result column="drug_English_name" property="drugEnglishName"/>
+        <result column="charge_item_code" property="chargeItemCode"/>
+        <result column="charge_item_name" property="chargeItemName"/>
+        <result column="insu_drug_type" property="insuDrugType"/>
+        <result column="insure_drug_grade" property="insureItemGrade"/>
+    </resultMap>
+
+    <!-- 单个插入 -->
+    <insert id="insertDrugDict" parameterType="com.penghy.server.bean.DrugDict">
+        INSERT INTO si_drug_dict
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="dictBookId != null">
+                dict_book_id,
+            </if>
+            <if test="insureDrugCode != null">
+                insure_drug_code,
+            </if>
+            <if test="drugStandardCode != null">
+                drug_standard_code,
+            </if>
+            <if test="drugChineseName != null">
+                drug_chinese_name,
+            </if>
+            <if test="drugChemName != null">
+                drug_chem_name,
+            </if>
+            <if test="drugEnglishName != null">
+                drug_english_name,
+            </if>
+            <if test="insureDrugSpec != null">
+                insure_drug_spec,
+            </if>
+            <if test="drugDosageForm != null">
+                drug_dosage_form,
+            </if>
+            <if test="chargeItemCode != null">
+                charge_item_code,
+            </if>
+            <if test="chargeItemName != null">
+                charge_item_name,
+            </if>
+            <if test="drugFactoryName != null">
+                drug_factory_name,
+            </if>
+            <if test="drugPackageUnit != null">
+                drug_package_unit,
+            </if>
+            <if test="insuDrugType != null">
+                insu_drug_type,
+            </if>
+            <if test="drugMinDose != null">
+                drug_min_dose,
+            </if>
+            <if test="minDoseUnit != null">
+                min_dose_unit,
+            </if>
+            <if test="drugMinUnit != null">
+                drug_min_unit,
+            </if>
+            <if test="drugDailyDosage != null">
+                drug_daily_dosage,
+            </if>
+            <if test="drugUsageFrequency != null">
+                drug_usage_frequency,
+            </if>
+            <if test="drugUsageMethod != null">
+                drug_usage_method,
+            </if>
+            <if test="itemApplyScope != null">
+                item_apply_scope,
+            </if>
+            <if test="insureDrugGrade != null">
+                insure_drug_grade,
+            </if>
+            <if test="drugRemark != null">
+                drug_remark,
+            </if>
+            <if test="prescriptionUsageFlag != null">
+                prescription_usage_flag,
+            </if>
+            <if test="standardUsagePosts != null">
+                standard_usage_posts,
+            </if>
+            <if test="drugStandardPrice != null">
+                drug_standard_price,
+            </if>
+            <if test="oiFlag != null">
+                oi_flag,
+            </if>
+            <if test="outpatientPriceQuota != null">
+                outpatient_price_quota,
+            </if>
+            <if test="inpatientPriceQuota != null">
+                inpatient_price_quota,
+            </if>
+            <if test="outpatientUsageQuota != null">
+                outpatient_usage_quota,
+            </if>
+            <if test="inpatientUsageQuota != null">
+                inpatient_usage_quota,
+            </if>
+            <if test="drugEachDose != null">
+                drug_each_dose,
+            </if>
+            <if test="itemLimitFlag != null">
+                item_limit_flag,
+            </if>
+            <if test="itemApprovalStyle != null">
+                item_approval_style,
+            </if>
+            <if test="drugSwicthScale != null">
+                drug_swicth_scale,
+            </if>
+            <if test="drugTexture != null">
+                drug_texture,
+            </if>
+            <if test="useStartTime != null">
+                use_start_time,
+            </if>
+            <if test="useEndTime != null">
+                use_end_time,
+            </if>
+            <if test="deleteFlag != null">
+                delete_flag,
+            </if>
+            <if test="orderby != null">
+                orderby,
+            </if>
+            <if test="searchCode1 != null">
+                search_code1,
+            </if>
+            <if test="searchCode2 != null">
+                search_code2,
+            </if>
+            <if test="searchCode3 != null">
+                search_code3,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="creator != null">
+                creator,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+            <if test="updater != null">
+                updater,
+            </if>
+            <if test="drugApproveNum != null">
+                drug_approve_num,
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id},
+            </if>
+            <if test="dictBookId != null">
+                #{dictBookId},
+            </if>
+            <if test="insureDrugCode != null">
+                #{insureDrugCode},
+            </if>
+            <if test="drugStandardCode != null">
+                #{drugStandardCode},
+            </if>
+            <if test="drugChineseName != null">
+                #{drugChineseName},
+            </if>
+            <if test="drugChemName != null">
+                #{drugChemName},
+            </if>
+            <if test="drugEnglishName != null">
+                #{drugEnglishName},
+            </if>
+            <if test="insureDrugSpec != null">
+                #{insureDrugSpec},
+            </if>
+            <if test="drugDosageForm != null">
+                #{drugDosageForm},
+            </if>
+            <if test="chargeItemCode != null">
+                #{chargeItemCode},
+            </if>
+            <if test="chargeItemName != null">
+                #{chargeItemName},
+            </if>
+            <if test="drugFactoryName != null">
+                #{drugFactoryName},
+            </if>
+            <if test="drugPackageUnit != null">
+                #{drugPackageUnit},
+            </if>
+            <if test="insuDrugType != null">
+                #{insuDrugType},
+            </if>
+            <if test="drugMinDose != null">
+                #{drugMinDose},
+            </if>
+            <if test="minDoseUnit != null">
+                #{minDoseUnit},
+            </if>
+            <if test="drugMinUnit != null">
+                #{drugMinUnit},
+            </if>
+            <if test="drugDailyDosage != null">
+                #{drugDailyDosage},
+            </if>
+            <if test="drugUsageFrequency != null">
+                #{drugUsageFrequency},
+            </if>
+            <if test="drugUsageMethod != null">
+                #{drugUsageMethod},
+            </if>
+            <if test="itemApplyScope != null">
+                #{itemApplyScope},
+            </if>
+            <if test="insureDrugGrade != null">
+                #{insureDrugGrade},
+            </if>
+            <if test="drugRemark != null">
+                #{drugRemark},
+            </if>
+            <if test="prescriptionUsageFlag != null">
+                #{prescriptionUsageFlag},
+            </if>
+            <if test="standardUsagePosts != null">
+                #{standardUsagePosts},
+            </if>
+            <if test="drugStandardPrice != null">
+                #{drugStandardPrice},
+            </if>
+            <if test="oiFlag != null">
+                #{oiFlag},
+            </if>
+            <if test="outpatientPriceQuota != null">
+                #{outpatientPriceQuota},
+            </if>
+            <if test="inpatientPriceQuota != null">
+                #{inpatientPriceQuota},
+            </if>
+            <if test="outpatientUsageQuota != null">
+                #{outpatientUsageQuota},
+            </if>
+            <if test="inpatientUsageQuota != null">
+                #{inpatientUsageQuota},
+            </if>
+            <if test="drugEachDose != null">
+                #{drugEachDose},
+            </if>
+            <if test="itemLimitFlag != null">
+                #{itemLimitFlag},
+            </if>
+            <if test="itemApprovalStyle != null">
+                #{itemApprovalStyle},
+            </if>
+            <if test="drugSwicthScale != null">
+                #{drugSwicthScale},
+            </if>
+            <if test="drugTexture != null">
+                #{drugTexture},
+            </if>
+            <if test="useStartTime != null">
+                #{useStartTime},
+            </if>
+            <if test="useEndTime != null">
+                #{useEndTime},
+            </if>
+            <if test="deleteFlag != null">
+                #{deleteFlag},
+            </if>
+            <if test="orderby != null">
+                #{orderby},
+            </if>
+            <if test="searchCode1 != null">
+                #{searchCode1},
+            </if>
+            <if test="searchCode2 != null">
+                #{searchCode2},
+            </if>
+            <if test="searchCode3 != null">
+                #{searchCode3},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="creator != null">
+                #{creator},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime},
+            </if>
+            <if test="updater != null">
+                #{updater},
+            </if>
+            <if test="drugApproveNum != null">
+                #{drugApproveNum},
+            </if>
+
+        </trim>
+    </insert>
+
+    <!-- 批量新增 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO si_drug_dict
+        (id,dict_book_id,insure_drug_code,drug_standard_code,drug_chinese_name,drug_chem_name,drug_english_name,insure_drug_spec,drug_dosage_form,charge_item_code,charge_item_name,drug_factory_name,drug_package_unit,insu_drug_type,drug_min_dose,min_dose_unit,drug_min_unit,drug_daily_dosage,drug_usage_frequency,drug_usage_method,item_apply_scope,insure_drug_grade,drug_remark,prescription_usage_flag,standard_usage_posts,drug_standard_price,oi_flag,outpatient_price_quota,inpatient_price_quota,outpatient_usage_quota,inpatient_usage_quota,drug_each_dose,item_limit_flag,item_approval_style,drug_swicth_scale,use_start_time,use_end_time,delete_flag,orderby,search_code1,search_code2,search_code3,create_time,creator,update_time,updater,drug_texture)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.id},#{item.dictBookId},#{item.insureDrugCode},#{item.drugStandardCode},#{item.drugChineseName},#{item.drugChemName},#{item.drugEnglishName},#{item.insureDrugSpec},#{item.drugDosageForm},#{item.chargeItemCode},#{item.chargeItemName},#{item.drugFactoryName},#{item.drugPackageUnit},#{item.insuDrugType},#{item.drugMinDose},#{item.minDoseUnit},#{item.drugMinUnit},#{item.drugDailyDosage},#{item.drugUsageFrequency},#{item.drugUsageMethod},#{item.itemApplyScope},#{item.insureDrugGrade},#{item.drugRemark},#{item.prescriptionUsageFlag},#{item.standardUsagePosts},#{item.drugStandardPrice},#{item.oiFlag},#{item.outpatientPriceQuota},#{item.inpatientPriceQuota},#{item.outpatientUsageQuota},#{item.inpatientUsageQuota},#{item.drugEachDose},#{item.itemLimitFlag},#{item.itemApprovalStyle},#{item.drugSwicthScale},#{item.useStartTime},#{item.useEndTime},#{item.deleteFlag},#{item.orderby},#{item.searchCode1},#{item.searchCode2},#{item.searchCode3},#{item.createTime},#{item.creator},#{item.updateTime},#{item.updater},#{item.drugTexture})
+        </foreach>
+    </insert>
+
+    <!-- 批量更新 -->
+    <update id="updateDrugDictBatch" parameterType="java.util.List">
+        <foreach collection="list" item="item" index="index" open="" close="" separator=";">
+            UPDATE si_drug_dict
+            <set>
+                <if test="item.dictBookId != null">
+                    dict_book_id = #{item.dictBookId},
+                </if>
+                <if test="item.insureDrugCode != null">
+                    insure_drug_code = #{item.insureDrugCode},
+                </if>
+                <if test="item.drugStandardCode != null">
+                    drug_standard_code = #{item.drugStandardCode},
+                </if>
+                <if test="item.drugChineseName != null">
+                    drug_chinese_name = #{item.drugChineseName},
+                </if>
+                <if test="item.drugChemName != null">
+                    drug_chem_name = #{item.drugChemName},
+                </if>
+                <if test="item.drugEnglishName != null">
+                    drug_english_name = #{item.drugEnglishName},
+                </if>
+                <if test="item.insureDrugSpec != null">
+                    insure_drug_spec = #{item.insureDrugSpec},
+                </if>
+                <if test="item.drugDosageForm != null">
+                    drug_dosage_form = #{item.drugDosageForm},
+                </if>
+                <if test="item.chargeItemCode != null">
+                    charge_item_code = #{item.chargeItemCode},
+                </if>
+                <if test="item.chargeItemName != null">
+                    charge_item_name = #{item.chargeItemName},
+                </if>
+                <if test="item.drugFactoryName != null">
+                    drug_factory_name = #{item.drugFactoryName},
+                </if>
+                <if test="item.drugPackageUnit != null">
+                    drug_package_unit = #{item.drugPackageUnit},
+                </if>
+                <if test="item.insuDrugType != null">
+                    insu_drug_type = #{item.insuDrugType},
+                </if>
+                <if test="item.drugMinDose != null">
+                    drug_min_dose = #{item.drugMinDose},
+                </if>
+                <if test="item.minDoseUnit != null">
+                    min_dose_unit = #{item.minDoseUnit},
+                </if>
+                <if test="item.drugMinUnit != null">
+                    drug_min_unit = #{item.drugMinUnit},
+                </if>
+                <if test="item.drugDailyDosage != null">
+                    drug_daily_dosage = #{item.drugDailyDosage},
+                </if>
+                <if test="item.drugUsageFrequency != null">
+                    drug_usage_frequency = #{item.drugUsageFrequency},
+                </if>
+                <if test="item.drugUsageMethod != null">
+                    drug_usage_method = #{item.drugUsageMethod},
+                </if>
+                <if test="item.itemApplyScope != null">
+                    item_apply_scope = #{item.itemApplyScope},
+                </if>
+                <if test="item.insureDrugGrade != null">
+                    insure_drug_grade = #{item.insureDrugGrade},
+                </if>
+                <if test="item.drugRemark != null">
+                    drug_remark = #{item.drugRemark},
+                </if>
+                <if test="item.prescriptionUsageFlag != null">
+                    prescription_usage_flag = #{item.prescriptionUsageFlag},
+                </if>
+                <if test="item.standardUsagePosts != null">
+                    standard_usage_posts = #{item.standardUsagePosts},
+                </if>
+                <if test="item.drugStandardPrice != null">
+                    drug_standard_price = #{item.drugStandardPrice},
+                </if>
+                <if test="item.oiFlag != null">
+                    oi_flag = #{item.oiFlag},
+                </if>
+                <if test="item.outpatientPriceQuota != null">
+                    outpatient_price_quota = #{item.outpatientPriceQuota},
+                </if>
+                <if test="item.inpatientPriceQuota != null">
+                    inpatient_price_quota = #{item.inpatientPriceQuota},
+                </if>
+                <if test="item.outpatientUsageQuota != null">
+                    outpatient_usage_quota = #{item.outpatientUsageQuota},
+                </if>
+                <if test="item.inpatientUsageQuota != null">
+                    inpatient_usage_quota = #{item.inpatientUsageQuota},
+                </if>
+                <if test="item.drugEachDose != null">
+                    drug_each_dose = #{item.drugEachDose},
+                </if>
+                <if test="item.itemLimitFlag != null">
+                    item_limit_flag = #{item.itemLimitFlag},
+                </if>
+                <if test="item.itemApprovalStyle != null">
+                    item_approval_style = #{item.itemApprovalStyle},
+                </if>
+                <if test="item.drugSwicthScale != null">
+                    drug_swicth_scale = #{item.drugSwicthScale},
+                </if>
+                <if test="item.drugTexture != null">
+                    drug_texture = #{item.drugTexture},
+                </if>
+                <if test="item.useStartTime != null">
+                    use_start_time = #{item.useStartTime},
+                </if>
+                <if test="item.useEndTime != null">
+                    use_end_time = #{item.useEndTime},
+                </if>
+                <if test="item.deleteFlag != null">
+                    delete_flag = #{item.deleteFlag},
+                </if>
+                <if test="item.orderby != null">
+                    orderby = #{item.orderby},
+                </if>
+                <if test="item.searchCode1 != null">
+                    search_code1 = #{item.searchCode1},
+                </if>
+                <if test="item.searchCode2 != null">
+                    search_code2 = #{item.searchCode2},
+                </if>
+                <if test="item.searchCode3 != null">
+                    search_code3 = #{item.searchCode3},
+                </if>
+                <if test="item.createTime != null">
+                    create_time = #{item.createTime},
+                </if>
+                <if test="item.creator != null">
+                    creator = #{item.creator},
+                </if>
+                <if test="item.updateTime != null">
+                    update_time = #{item.updateTime},
+                </if>
+                <if test="item.updater != null">
+                    updater = #{item.updater},
+                </if>
+
+            </set>
+            WHERE id = #{item.id}
+        </foreach>
+    </update>
+
+    <!-- 单个更新 -->
+    <update id="updateDrugDict" parameterType="com.penghy.server.bean.DrugDict">
+        UPDATE
+          si_drug_dict
+        set
+            dict_book_id = #{dictBookId},
+            insure_drug_code = #{insureDrugCode},
+            drug_standard_code = #{drugStandardCode},
+            drug_chinese_name = #{drugChineseName},
+            drug_chem_name = #{drugChemName},
+            drug_english_name = #{drugEnglishName},
+            insure_drug_spec = #{insureDrugSpec},
+            drug_dosage_form = #{drugDosageForm},
+            charge_item_code = #{chargeItemCode},
+            charge_item_name = #{chargeItemName},
+            drug_factory_name = #{drugFactoryName},
+            drug_package_unit = #{drugPackageUnit},
+            insu_drug_type = #{insuDrugType},
+            drug_min_dose = #{drugMinDose},
+            min_dose_unit = #{minDoseUnit},
+            drug_min_unit = #{drugMinUnit},
+            drug_daily_dosage = #{drugDailyDosage},
+            drug_usage_frequency = #{drugUsageFrequency},
+            drug_usage_method = #{drugUsageMethod},
+            item_apply_scope = #{itemApplyScope},
+            insure_drug_grade = #{insureDrugGrade},
+            drug_remark = #{drugRemark},
+            prescription_usage_flag = #{prescriptionUsageFlag},
+            standard_usage_posts = #{standardUsagePosts},
+            drug_standard_price = #{drugStandardPrice},
+            oi_flag = #{oiFlag},
+            outpatient_price_quota = #{outpatientPriceQuota},
+            inpatient_price_quota = #{inpatientPriceQuota},
+            outpatient_usage_quota = #{outpatientUsageQuota},
+            inpatient_usage_quota = #{inpatientUsageQuota},
+            drug_each_dose = #{drugEachDose},
+            item_limit_flag = #{itemLimitFlag},
+            item_approval_style = #{itemApprovalStyle},
+            drug_swicth_scale = #{drugSwicthScale},
+            drug_texture = #{drugTexture},
+            use_start_time = #{useStartTime},
+            use_end_time = #{useEndTime},
+            delete_flag = #{deleteFlag},
+            orderby = #{orderby},
+            search_code1 = #{searchCode1},
+            search_code2 = #{searchCode2},
+            search_code3 = #{searchCode3},
+            create_time = #{createTime},
+            creator = #{creator},
+            update_time = #{updateTime},
+            updater = #{updater}
+        WHERE
+        dict_book_id = #{dictBookId}
+        and
+        insure_drug_code = #{insureDrugCode}
+    </update>
+
+    <!-- 删除 -->
+    <update id="deleteDrugDict" parameterType="com.penghy.server.bean.DrugDict">
+        UPDATE si_drug_dict
+        SET updater = #{updater},delete_flag = 1
+        WHERE id = #{id}
+    </update>
+
+
+    <!-- 查询所有 对照使用 -->
+    <select id="queryDrugDictList" resultType="com.penghy.server.bean.DrugDict"
+            parameterType="com.penghy.server.bean.DrugDict">
+        SELECT
+        d.id,
+        d.dict_book_id,
+        d.insure_drug_code,
+        d.drug_standard_code,
+        d.drug_Chinese_name,
+        d.drug_chem_name,
+        d.drug_dosage_form,
+        s.insure_self_scale,
+        s.compound_self_scale,
+        d.insure_drug_spec,
+        d.drug_factory_name,
+        d.drug_package_unit,
+        d.drug_usage_method,
+        d.item_apply_scope,
+        d.use_start_time,
+        d.use_end_time,
+        d.orderby,
+        d.search_code1,
+        d.search_code2,
+        d.search_code3,
+        d.delete_flag,
+        d.create_time,
+        d.creator,
+        d.update_time,
+        d.updater,
+        d.drug_texture
+        FROM
+        si_drug_dict d
+        LEFT JOIN si_drug_scale s ON d.insure_drug_code = s.insure_drug_code
+        AND d.dict_book_id = s.dict_book_id
+
+        <where>
+            d.dict_book_id = #{dictBookId}
+            <if test="searchCode1 != null and searchCode1 != ''">
+                AND (d.search_code1 like CONCAT('%' ,#{searchCode1},'%')
+                or d.search_code2 like CONCAT('%' ,#{searchCode1},'%')
+                or d.search_code3 like CONCAT('%' ,#{searchCode1},'%'))
+            </if>
+            <if test="deleteFlag != null and deleteFlag != 2">
+                AND d.delete_flag = #{deleteFlag}
+            </if>
+            <if test="defaultTreatmentType != null and defaultTreatmentType!= ''">
+                AND s.insure_treatment_style = #{defaultTreatmentType}
+            </if>
+        </where>
+        ORDER BY d.orderby ASC
+    </select>
+
+
+    <!-- 单个查询 -->
+    <select id="getDrugDict" parameterType="com.penghy.server.bean.DrugDict"
+            resultType="com.penghy.server.bean.DrugDict">
+        SELECT
+        <include refid="baseColumnList"/>
+        FROM si_drug_dict
+        WHERE
+        dict_book_id = #{dictBookId} and
+        insure_drug_code = #{insureDrugCode}
+        and delete_flag = 0
+        limit 1;
+    </select>
+    <select id="queryDrugDictByInsureDrugCodes" resultType="com.penghy.server.bean.DrugDict">
+
+        SELECT
+        <include refid="baseColumnList"/>
+        FROM si_drug_dict
+        <where>
+            <if test="dictBookId != null">
+                dict_book_id = #{dictBookId}
+            </if>
+            <if test="insureDrugCodeList != null and insureDrugCodeList.size() > 0">
+                and insure_drug_code in
+                <foreach collection="insureDrugCodeList" item="insureDrugCode" index="index" open="(" close=")"
+                         separator=",">
+                    #{insureDrugCode}
+                </foreach>
+            </if>
+        </where>
+
+
+    </select>
+    <select id="queryDrugDictListByDictBookId" resultType="com.penghy.server.bean.DrugDict">
+
+        SELECT
+        <include refid="baseColumnList"/>
+        FROM si_drug_dict
+        <where>
+            <if test="dictBookId != null">
+                AND dict_book_id = #{dictBookId}
+            </if>
+        </where>
+
+    </select>
+
+    <!--获取保险药品目录-->
+    <select id="selectDrugDict" parameterType="map" resultType="map">
+        SELECT
+            IFNULL(item_approval_style,'') siApproveType,
+            IFNULL(insure_drug_grade,'') siItemGrade,
+            IFNULL(drug_standard_code,'') standardCode,
+            IFNULL(charge_item_code,'') siItemIncome,
+            IFNULL(item_apply_scope,'') siApplyRange,
+            IFNULL(drug_remark,'') siRemark,
+            IFNULL(item_limit_flag,'') siRangeFlag,
+            IFNULL(drug_Chinese_name,'') siItemName
+        FROM
+            si_drug_dict
+        WHERE
+            dict_book_id = #{dictBookId}
+        AND insure_drug_code=#{siItemId}
+        <![CDATA[
+        AND (use_start_time <= #{happendTime} OR use_start_time IS NULL)
+        AND (use_end_time >= #{happendTime} OR use_end_time IS NULL)
+
+        ]]>
+        limit 0,1
+    </select>
+
+    <!--获取保险药品目录-->
+    <select id="getDrugDictInfo" parameterType="string" resultType="com.penghy.server.bean.DrugDict">
+        SELECT
+        a.drug_spec_id,
+        b.*
+        FROM
+        si_drug_dict2his a,
+        si_drug_dict b,
+        si_exec_dict c
+        WHERE
+        a.insure_drug_code = b.insure_drug_code
+        AND a.dict_book_id = c.dict_book_id
+        AND a.dict_book_id = b.dict_book_id
+        AND (b.delete_flag = '0' OR b.delete_flag IS NULL)
+        AND a.drug_spec_id=#{drugSpecId}
+        AND c.medi_insure_id = #{mediInsureId}
+        <![CDATA[
+            AND c.exec_start_time <= #{execTime}
+            AND (
+                c.exec_end_time >= #{execTime}
+                OR c.exec_end_time = '0000-00-00 00:00:00'
+            )
+        ]]>
+        <if test="personStyleCode != null and personStyleCode != ''">
+            AND a.person_style_code = #{personStyleCode}
+        </if>
+        <if test="drugFactoryId != null and drugFactoryId != ''">
+            AND a.drug_factory_id = #{drugFactoryId}
+        </if>
+        LIMIT 0,1
+    </select>
+
+    <!-- 单个查询,于2020-12-21 phy创建，以后为医保相关统一使用 -->
+    <select id="getSiDrugDict" parameterType="map" resultMap="columnMap">
+        SELECT
+        <include refid="baseColumnList"/>
+        FROM si_drug_dict
+        where 1=1
+        <if test="dictBookId != null and dictBookId != ''">
+            and dict_book_id = #{dictBookId}
+        </if>
+        <if test="insureDrugCode != null and insureDrugCode != ''">
+            and insure_drug_code = #{insureDrugCode}
+        </if>
+        limit 1;
+    </select>
+</mapper>

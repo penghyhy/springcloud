@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.penghy.server.mapper.PersonMapper">
+
+    <insert id="insert" parameterType="com.penghy.server.bean.ItemDict">
+        INSERT INTO si_item_dict_down
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="yka002 != null">
+                yka002,
+            </if>
+            <if test="yka003 != null">
+                yka003,
+            </if>
+            <if test="yae036 != null">
+                yae036,
+            </if>
+            <if test="yka001 != null">
+                yka001,
+            </if>
+            <if test="ykd110 != null">
+                ykd110,
+            </if>
+            <if test="yka389 != null">
+                yka389,
+            </if>
+            <if test="yka401 != null">
+                yka401,
+            </if>
+            <if test="yka295 != null">
+                yka295,
+            </if>
+            <if test="aka074 != null">
+                aka074,
+            </if>
+            <if test="aka070 != null">
+                aka070,
+            </if>
+            <if test="yaa027 != null">
+                yaa027,
+            </if>
+            <if test="yka007 != null">
+                yka007,
+            </if>
+            <if test="yke100 != null">
+                yke100,
+            </if>
+            <if test="yke054 != null">
+                yke054,
+            </if>
+            <if test="yke103 != null">
+                yke103,
+            </if>
+            <if test="aae013 != null">
+                aae013,
+            </if>
+            <if test="yka096 != null">
+                yka096,
+            </if>
+            <if test="yae375 != null">
+                yae375,
+            </if>
+            <if test="yka284 != null">
+                yka284,
+            </if>
+            <if test="yka233 != null">
+                yka233,
+            </if>
+            <if test="yka601 != null">
+                yka601,
+            </if>
+            <if test="yka603 != null">
+                yka603,
+            </if>
+            <if test="yka604 != null">
+                yka604,
+            </if>
+            <if test="yka606 != null">
+                yka606,
+            </if>
+            <if test="yka609 != null">
+                yka609,
+            </if>
+            <if test="yka459 != null">
+                yka459,
+            </if>
+            <if test="yka096Lx != null">
+                yka096_lx,
+            </if>
+            <if test="yka096Jm != null">
+                yka096_jm,
+            </if>
+            <if test="yka459Lx != null">
+                yka459_lx,
+            </if>
+            <if test="yka459Jm != null">
+                yka459_jm,
+            </if>
+            <if test="yka096Tj != null">
+                yka096_tj,
+            </if>
+            <if test="yka459Tj != null">
+                yka459_tj,
+            </if>
+            <if test="aka101 != null">
+                aka101,
+            </if>
+            <if test="yka096Gs != null">
+                yka096_gs,
+            </if>
+            <if test="yka459Gs != null">
+                yka459_gs,
+            </if>
+            <if test="yka828 != null">
+                yka828,
+            </if>
+            <if test="yka826 != null">
+                yka826,
+            </if>
+            <if test="yka829 != null">
+                yka829,
+            </if>
+            <if test="yka751 != null">
+                yka751,
+            </if>
+            <if test="ykl824 != null">
+                ykl824,
+            </if>
+            <if test="yka430 != null">
+                yka430,
+            </if>
+            <if test="yka431 != null">
+                yka431,
+            </if>
+            <if test="aaalsh != null">
+                aaalsh,
+            </if>
+            <if test="aae030 != null">
+                aae030,
+            </if>
+            <if test="aae031 != null">
+                aae031,
+            </if>
+            <if test="yka459Cg != null">
+                yka459_cg,
+            </if>
+            <if test="yka459Lb != null">
+                yka459_lb,
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="yka002 != null">
+                #{yka002},
+            </if>
+            <if test="yka003 != null">
+                #{yka003},
+            </if>
+            <if test="yae036 != null">
+                #{yae036},
+            </if>
+            <if test="yka001 != null">
+                #{yka001},
+            </if>
+            <if test="ykd110 != null">
+                #{ykd110},
+            </if>
+            <if test="yka389 != null">
+                #{yka389},
+            </if>
+            <if test="yka401 != null">
+                #{yka401},
+            </if>
+            <if test="yka295 != null">
+                #{yka295},
+            </if>
+            <if test="aka074 != null">
+                #{aka074},
+            </if>
+            <if test="aka070 != null">
+                #{aka070},
+            </if>
+            <if test="yaa027 != null">
+                #{yaa027},
+            </if>
+            <if test="yka007 != null">
+                #{yka007},
+            </if>
+            <if test="yke100 != null">
+                #{yke100},
+            </if>
+            <if test="yke054 != null">
+                #{yke054},
+            </if>
+            <if test="yke103 != null">
+                #{yke103},
+            </if>
+            <if test="aae013 != null">
+                #{aae013},
+            </if>
+            <if test="yka096 != null">
+                #{yka096},
+            </if>
+            <if test="yae375 != null">
+                #{yae375},
+            </if>
+            <if test="yka284 != null">
+                #{yka284},
+            </if>
+            <if test="yka233 != null">
+                #{yka233},
+            </if>
+            <if test="yka601 != null">
+                #{yka601},
+            </if>
+            <if test="yka603 != null">
+                #{yka603},
+            </if>
+            <if test="yka604 != null">
+                #{yka604},
+            </if>
+            <if test="yka606 != null">
+                #{yka606},
+            </if>
+            <if test="yka609 != null">
+                #{yka609},
+            </if>
+            <if test="yka459 != null">
+                #{yka459},
+            </if>
+            <if test="yka096Lx != null">
+                #{yka096Lx},
+            </if>
+            <if test="yka096Jm != null">
+                #{yka096Jm},
+            </if>
+            <if test="yka459Lx != null">
+                #{yka459Lx},
+            </if>
+            <if test="yka459Jm != null">
+                #{yka459Jm},
+            </if>
+            <if test="yka096Tj != null">
+                #{yka096Tj},
+            </if>
+            <if test="yka459Tj != null">
+                #{yka459Tj},
+            </if>
+            <if test="aka101 != null">
+                #{aka101},
+            </if>
+            <if test="yka096Gs != null">
+                #{yka096Gs},
+            </if>
+            <if test="yka459Gs != null">
+                #{yka459Gs},
+            </if>
+            <if test="yka828 != null">
+                #{yka828},
+            </if>
+            <if test="yka826 != null">
+                #{yka826},
+            </if>
+            <if test="yka829 != null">
+                #{yka829},
+            </if>
+            <if test="yka751 != null">
+                #{yka751},
+            </if>
+            <if test="ykl824 != null">
+                #{ykl824},
+            </if>
+            <if test="yka430 != null">
+                #{yka430},
+            </if>
+            <if test="yka431 != null">
+                #{yka431},
+            </if>
+            <if test="aaalsh != null">
+                #{aaalsh},
+            </if>
+            <if test="aae030 != null">
+                #{aae030},
+            </if>
+            <if test="aae031 != null">
+                #{aae031},
+            </if>
+            <if test="yka459Cg != null">
+                #{yka459Cg},
+            </if>
+            <if test="yka459Lb != null">
+                #{yka459Lb},
+            </if>
+
+        </trim>
+    </insert>
+
+    <!-- 查询所有 -->
+    <select id="queryaaaaaList" resultType="com.penghy.server.bean.DrugDict1"
+            parameterType="com.penghy.server.bean.DrugDict1">
+select * from si_drug_dict_phy where search_code1 is null or search_code1=''
+
+--         SELECT
+-- 	*,
+-- yka096_lx yka096Lx,
+-- yka096_jm yka096Jm,
+-- yka459_lx yka459Lx,
+-- yka459_jm yka459Jm,
+-- yka096_tj yka096Lj,
+-- yka459_tj yka459Tj,
+-- yka096_gs yka096Gs,
+-- yka459_gs yka459Gs,
+-- yka459_cg yka459Cg,
+-- yka459_lb yka459Lb
+-- FROM
+-- 	si_item_dict_down
+-- WHERE
+-- 	yka001 IN ( '81', '82', '83', '84' )
+
+    </select>
+
+
+    <select id="selectwowjoydrugdict" resultType="com.penghy.server.bean.DrugDict1"
+            parameterType="com.penghy.server.bean.DrugDict1">
+             select t.increment_id incrementId,t.insure_drug_code insureDrugCode,t.drug_Chinese_name drugChineseName,t.* FROM si_drug_dict_0222 t
+    </select>
+
+    <!-- 查询所有 -->
+    <select id="selectDrugDict" resultType="com.penghy.server.bean.DrugDict1"
+            parameterType="com.penghy.server.bean.DrugDict1">
+select *,increment_id incrementId,drug_Chinese_name drugChineseName from si_drug_dict_phy where search_code1 is null or search_code1=''
+
+--         SELECT
+-- 	*,
+-- yka096_lx yka096Lx,
+-- yka096_jm yka096Jm,
+-- yka459_lx yka459Lx,
+-- yka459_jm yka459Jm,
+-- yka096_tj yka096Lj,
+-- yka459_tj yka459Tj,
+-- yka096_gs yka096Gs,
+-- yka459_gs yka459Gs,
+-- yka459_cg yka459Cg,
+-- yka459_lb yka459Lb
+-- FROM
+-- 	si_item_dict_down
+-- WHERE
+-- 	yka001 IN ( '81', '82', '83', '84' )
+
+    </select>
+
+    <!-- 批量新增 -->
+    <insert id="insertBatch" parameterType="java.util.List">
+        INSERT INTO si_drug_dict_sub_phy
+        (dict_book_id,insure_drug_code,sub_field_name,sub_field_content)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.dictBookId},#{item.insureDrugCode},#{item.subFieldName},#{item.subFieldContent})
+        </foreach>
+    </insert>
+
+    <insert id="insertDrugDict" parameterType="com.penghy.server.bean.DrugDict1">
+        INSERT INTO si_drug_dict_phy
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="insureDrugCode != null">
+                insure_drug_code,
+            </if>
+            <if test="drugChineseName != null">
+                drug_Chinese_name,
+            </if>
+            <if test="chargeItemCode != null">
+                charge_item_code,
+            </if>
+            <if test="drugFactoryName != null">
+                drug_factory_name,
+            </if>
+            <if test="drugMinUnit != null">
+                drug_min_unit,
+            </if>
+            <if test="insureDrugSpec != null">
+                insure_drug_spec,
+            </if>
+            <if test="drugDosageForm != null">
+                drug_dosage_form,
+            </if>
+            <if test="drugEnglishName != null">
+                drug_English_name,
+            </if>
+            <if test="searchCode1 != null">
+                search_code1,
+            </if>
+            <if test="searchCode2 != null">
+                search_code2,
+            </if>
+            <if test="useStartTime != null">
+                use_start_time,
+            </if>
+            <if test="useEndTime != null">
+                use_end_time,
+            </if>
+            <if test="drugApproveNum != null">
+                drug_approve_num,
+            </if>
+            <if test="drugRemark != null">
+                drug_remark,
+            </if>
+            <if test="itemApplyScope != null">
+                item_apply_scope,
+            </if>
+            <if test="insureDrugGrade != null">
+                insure_drug_grade,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="insureDrugCode != null">
+                #{insureDrugCode},
+            </if>
+            <if test="drugChineseName != null">
+                #{drugChineseName},
+            </if>
+            <if test="chargeItemCode != null">
+                #{chargeItemCode},
+            </if>
+            <if test="drugFactoryName != null">
+                #{drugFactoryName},
+            </if>
+            <if test="drugMinUnit != null">
+                #{drugMinUnit},
+            </if>
+            <if test="insureDrugSpec != null">
+                #{insureDrugSpec},
+            </if>
+            <if test="drugDosageForm != null">
+                #{drugDosageForm},
+            </if>
+            <if test="drugEnglishName != null">
+                #{drugEnglishName},
+            </if>
+            <if test="searchCode1 != null">
+                #{searchCode1},
+            </if>
+            <if test="searchCode2 != null">
+                #{searchCode2},
+            </if>
+            <if test="useStartTime != null">
+                #{useStartTime},
+            </if>
+            <if test="useEndTime != null">
+                #{useEndTime},
+            </if>
+            <if test="drugApproveNum != null">
+                #{drugApproveNum},
+            </if>
+            <if test="drugRemark != null">
+                #{drugRemark},
+            </if>
+            <if test="itemApplyScope != null">
+                #{itemApplyScope},
+            </if>
+            <if test="insureDrugGrade != null">
+                #{insureDrugGrade},
+            </if>
+        </trim>
+    </insert>
+
+    <!-- 批量新增 -->
+    <insert id="insertorderBatch" parameterType="java.util.List">
+        INSERT INTO si_order_dict_sub_phy
+        (dict_book_id,insure_order_ocde,sub_field_name,sub_field_content)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.dictBookId},#{item.insureOrderOcde},#{item.subFieldName},#{item.subFieldContent})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrderDict" parameterType="com.penghy.server.bean.OrderDict1">
+        INSERT INTO si_order_dict_phy
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="insureOrderCode != null">
+                insure_order_code,
+            </if>
+            <if test="orderChineseName != null">
+                order_Chinese_name,
+            </if>
+            <if test="chargeItemCode != null">
+                charge_item_code,
+            </if>
+            <if test="insureOrderUnit != null">
+                insure_order_unit,
+            </if>
+            <if test="orderEnglishName != null">
+                order_English_name,
+            </if>
+            <if test="searchCode1 != null">
+                search_code1,
+            </if>
+            <if test="searchCode2 != null">
+                search_code2,
+            </if>
+            <if test="useStartTime != null">
+                use_start_time,
+            </if>
+            <if test="useEndTime != null">
+                use_end_time,
+            </if>
+            <if test="orderApproveNum != null">
+                order_approve_num,
+            </if>
+            <if test="orderRemark != null">
+                order_remark,
+            </if>
+            <if test="chageApplyScope != null">
+                chage_apply_scope,
+            </if>
+            <if test="insureOrderGrade != null">
+                insure_order_grade,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="insureOrderCode != null">
+                #{insureOrderCode},
+            </if>
+            <if test="orderChineseName != null">
+                #{orderChineseName},
+            </if>
+            <if test="chargeItemCode != null">
+                #{chargeItemCode},
+            </if>
+            <if test="insureOrderUnit != null">
+                #{insureOrderUnit},
+            </if>
+            <if test="orderEnglishName != null">
+                #{orderEnglishName},
+            </if>
+            <if test="searchCode1 != null">
+                #{searchCode1},
+            </if>
+            <if test="searchCode2 != null">
+                #{searchCode2},
+            </if>
+            <if test="useStartTime != null">
+                #{useStartTime},
+            </if>
+            <if test="useEndTime != null">
+                #{useEndTime},
+            </if>
+            <if test="orderApproveNum != null">
+                #{orderApproveNum},
+            </if>
+            <if test="orderRemark != null">
+                #{orderRemark},
+            </if>
+            <if test="chageApplyScope != null">
+                #{chageApplyScope},
+            </if>
+            <if test="insureOrderGrade != null">
+                #{insureOrderGrade},
+            </if>
+        </trim>
+    </insert>
+
+
+    <insert id="insertDisease" parameterType="com.penghy.server.bean.ItemDict">
+        INSERT INTO si_disease
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="yka002 != null">
+                insure_disease_code,
+            </if>
+            <if test="yka003 != null">
+                disease_Chinese_name,
+            </if>
+            <if test="aka070 != null">
+                disease_standard_code,
+            </if>
+            <if test="yka389 != null">
+                search_code1,
+            </if>
+            <if test="yka401 != null">
+                search_code2,
+            </if>
+            <if test="aae013 != null">
+                disease_remark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="yka002 != null">
+                #{yka002},
+            </if>
+            <if test="yka003 != null">
+                #{yka003},
+            </if>
+            <if test="aka070 != null">
+                #{aka070},
+            </if>
+            <if test="yka389 != null">
+                #{yka389},
+            </if>
+            <if test="yka401 != null">
+                #{yka401},
+            </if>
+            <if test="aae013 != null">
+                #{aae013},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>
