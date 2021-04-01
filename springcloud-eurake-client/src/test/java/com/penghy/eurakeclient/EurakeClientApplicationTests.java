@@ -1,4 +1,4 @@
-package com.penghy.client;
+package com.penghy.eurakeclient;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
