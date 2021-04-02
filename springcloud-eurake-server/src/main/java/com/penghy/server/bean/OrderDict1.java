@@ -60,7 +60,6 @@ public class OrderDict1 {
     private String insureOrderGrade;
 
 
-
     /**
      * 备注
      */

@@ -4,141 +4,141 @@
 
     <!-- 基本列 -->
     <sql id="baseColumnList">
-    field1,field2,field3,field4,field5,field6,field7,field8,field9,field10,field11,field12,field13,field14,field15,field16,field17,field18,field19,field20,field21,field22,field23,field24,field25,field26,field27,field28,field29,field30,field31,field32,field33,field34,field35,field36,field37,field38,field39,field40,field41,field42,field43
+        field1,field2,field3,field4,field5,field6,field7,field8,field9,field10,field11,field12,field13,field14,field15,field16,field17,field18,field19,field20,field21,field22,field23,field24,field25,field26,field27,field28,field29,field30,field31,field32,field33,field34,field35,field36,field37,field38,field39,field40,field41,field42,field43
     </sql>
 
     <!-- 查询条件 -->
     <sql id="whereColumnList">
         <where>
-                  <if test="field1 != null">
-        and field1 = #{field1}
-      </if>
-      <if test="field2 != null">
-        and field2 = #{field2}
-      </if>
-      <if test="field3 != null">
-        and field3 = #{field3}
-      </if>
-      <if test="field4 != null">
-        and field4 = #{field4}
-      </if>
-      <if test="field5 != null">
-        and field5 = #{field5}
-      </if>
-      <if test="field6 != null">
-        and field6 = #{field6}
-      </if>
-      <if test="field7 != null">
-        and field7 = #{field7}
-      </if>
-      <if test="field8 != null">
-        and field8 = #{field8}
-      </if>
-      <if test="field9 != null">
-        and field9 = #{field9}
-      </if>
-      <if test="field10 != null">
-        and field10 = #{field10}
-      </if>
-      <if test="field11 != null">
-        and field11 = #{field11}
-      </if>
-      <if test="field12 != null">
-        and field12 = #{field12}
-      </if>
-      <if test="field13 != null">
-        and field13 = #{field13}
-      </if>
-      <if test="field14 != null">
-        and field14 = #{field14}
-      </if>
-      <if test="field15 != null">
-        and field15 = #{field15}
-      </if>
-      <if test="field16 != null">
-        and field16 = #{field16}
-      </if>
-      <if test="field17 != null">
-        and field17 = #{field17}
-      </if>
-      <if test="field18 != null">
-        and field18 = #{field18}
-      </if>
-      <if test="field19 != null">
-        and field19 = #{field19}
-      </if>
-      <if test="field20 != null">
-        and field20 = #{field20}
-      </if>
-      <if test="field21 != null">
-        and field21 = #{field21}
-      </if>
-      <if test="field22 != null">
-        and field22 = #{field22}
-      </if>
-      <if test="field23 != null">
-        and field23 = #{field23}
-      </if>
-      <if test="field24 != null">
-        and field24 = #{field24}
-      </if>
-      <if test="field25 != null">
-        and field25 = #{field25}
-      </if>
-      <if test="field26 != null">
-        and field26 = #{field26}
-      </if>
-      <if test="field27 != null">
-        and field27 = #{field27}
-      </if>
-      <if test="field28 != null">
-        and field28 = #{field28}
-      </if>
-      <if test="field29 != null">
-        and field29 = #{field29}
-      </if>
-      <if test="field30 != null">
-        and field30 = #{field30}
-      </if>
-      <if test="field31 != null">
-        and field31 = #{field31}
-      </if>
-      <if test="field32 != null">
-        and field32 = #{field32}
-      </if>
-      <if test="field33 != null">
-        and field33 = #{field33}
-      </if>
-      <if test="field34 != null">
-        and field34 = #{field34}
-      </if>
-      <if test="field35 != null">
-        and field35 = #{field35}
-      </if>
-      <if test="field36 != null">
-        and field36 = #{field36}
-      </if>
-      <if test="field37 != null">
-        and field37 = #{field37}
-      </if>
-      <if test="field38 != null">
-        and field38 = #{field38}
-      </if>
-      <if test="field39 != null">
-        and field39 = #{field39}
-      </if>
-      <if test="field40 != null">
-        and field40 = #{field40}
-      </if>
-      <if test="field41 != null">
-        and field41 = #{field41}
-      </if>
-      <if test="field42 != null">
-        and field42 = #{field42}
-      </if>
-      <if test="field43 != null">
-        and field43 = #{field43}
-      </if>
+            <if test="field1 != null">
+                and field1 = #{field1}
+            </if>
+            <if test="field2 != null">
+                and field2 = #{field2}
+            </if>
+            <if test="field3 != null">
+                and field3 = #{field3}
+            </if>
+            <if test="field4 != null">
+                and field4 = #{field4}
+            </if>
+            <if test="field5 != null">
+                and field5 = #{field5}
+            </if>
+            <if test="field6 != null">
+                and field6 = #{field6}
+            </if>
+            <if test="field7 != null">
+                and field7 = #{field7}
+            </if>
+            <if test="field8 != null">
+                and field8 = #{field8}
+            </if>
+            <if test="field9 != null">
+                and field9 = #{field9}
+            </if>
+            <if test="field10 != null">
+                and field10 = #{field10}
+            </if>
+            <if test="field11 != null">
+                and field11 = #{field11}
+            </if>
+            <if test="field12 != null">
+                and field12 = #{field12}
+            </if>
+            <if test="field13 != null">
+                and field13 = #{field13}
+            </if>
+            <if test="field14 != null">
+                and field14 = #{field14}
+            </if>
+            <if test="field15 != null">
+                and field15 = #{field15}
+            </if>
+            <if test="field16 != null">
+                and field16 = #{field16}
+            </if>
+            <if test="field17 != null">
+                and field17 = #{field17}
+            </if>
+            <if test="field18 != null">
+                and field18 = #{field18}
+            </if>
+            <if test="field19 != null">
+                and field19 = #{field19}
+            </if>
+            <if test="field20 != null">
+                and field20 = #{field20}
+            </if>
+            <if test="field21 != null">
+                and field21 = #{field21}
+            </if>
+            <if test="field22 != null">
+                and field22 = #{field22}
+            </if>
+            <if test="field23 != null">
+                and field23 = #{field23}
+            </if>
+            <if test="field24 != null">
+                and field24 = #{field24}
+            </if>
+            <if test="field25 != null">
+                and field25 = #{field25}
+            </if>
+            <if test="field26 != null">
+                and field26 = #{field26}
+            </if>
+            <if test="field27 != null">
+                and field27 = #{field27}
+            </if>
+            <if test="field28 != null">
+                and field28 = #{field28}
+            </if>
+            <if test="field29 != null">
+                and field29 = #{field29}
+            </if>
+            <if test="field30 != null">
+                and field30 = #{field30}
+            </if>
+            <if test="field31 != null">
+                and field31 = #{field31}
+            </if>
+            <if test="field32 != null">
+                and field32 = #{field32}
+            </if>
+            <if test="field33 != null">
+                and field33 = #{field33}
+            </if>
+            <if test="field34 != null">
+                and field34 = #{field34}
+            </if>
+            <if test="field35 != null">
+                and field35 = #{field35}
+            </if>
+            <if test="field36 != null">
+                and field36 = #{field36}
+            </if>
+            <if test="field37 != null">
+                and field37 = #{field37}
+            </if>
+            <if test="field38 != null">
+                and field38 = #{field38}
+            </if>
+            <if test="field39 != null">
+                and field39 = #{field39}
+            </if>
+            <if test="field40 != null">
+                and field40 = #{field40}
+            </if>
+            <if test="field41 != null">
+                and field41 = #{field41}
+            </if>
+            <if test="field42 != null">
+                and field42 = #{field42}
+            </if>
+            <if test="field43 != null">
+                and field43 = #{field43}
+            </if>
 
         </where>
     </sql>
@@ -147,267 +147,267 @@
     <insert id="insertItemDict" parameterType="com.penghy.server.bean.ItemDict">
         INSERT INTO si_order_dict_temp
         <trim prefix="(" suffix=")" suffixOverrides=",">
-              <if test="field1 != null">
-        field1,
-      </if>
-      <if test="field2 != null">
-        field2,
-      </if>
-      <if test="field3 != null">
-        field3,
-      </if>
-      <if test="field4 != null">
-        field4,
-      </if>
-      <if test="field5 != null">
-        field5,
-      </if>
-      <if test="field6 != null">
-        field6,
-      </if>
-      <if test="field7 != null">
-        field7,
-      </if>
-      <if test="field8 != null">
-        field8,
-      </if>
-      <if test="field9 != null">
-        field9,
-      </if>
-      <if test="field10 != null">
-        field10,
-      </if>
-      <if test="field11 != null">
-        field11,
-      </if>
-      <if test="field12 != null">
-        field12,
-      </if>
-      <if test="field13 != null">
-        field13,
-      </if>
-      <if test="field14 != null">
-        field14,
-      </if>
-      <if test="field15 != null">
-        field15,
-      </if>
-      <if test="field16 != null">
-        field16,
-      </if>
-      <if test="field17 != null">
-        field17,
-      </if>
-      <if test="field18 != null">
-        field18,
-      </if>
-      <if test="field19 != null">
-        field19,
-      </if>
-      <if test="field20 != null">
-        field20,
-      </if>
-      <if test="field21 != null">
-        field21,
-      </if>
-      <if test="field22 != null">
-        field22,
-      </if>
-      <if test="field23 != null">
-        field23,
-      </if>
-      <if test="field24 != null">
-        field24,
-      </if>
-      <if test="field25 != null">
-        field25,
-      </if>
-      <if test="field26 != null">
-        field26,
-      </if>
-      <if test="field27 != null">
-        field27,
-      </if>
-      <if test="field28 != null">
-        field28,
-      </if>
-      <if test="field29 != null">
-        field29,
-      </if>
-      <if test="field30 != null">
-        field30,
-      </if>
-      <if test="field31 != null">
-        field31,
-      </if>
-      <if test="field32 != null">
-        field32,
-      </if>
-      <if test="field33 != null">
-        field33,
-      </if>
-      <if test="field34 != null">
-        field34,
-      </if>
-      <if test="field35 != null">
-        field35,
-      </if>
-      <if test="field36 != null">
-        field36,
-      </if>
-      <if test="field37 != null">
-        field37,
-      </if>
-      <if test="field38 != null">
-        field38,
-      </if>
-      <if test="field39 != null">
-        field39,
-      </if>
-      <if test="field40 != null">
-        field40,
-      </if>
-      <if test="field41 != null">
-        field41,
-      </if>
-      <if test="field42 != null">
-        field42,
-      </if>
-      <if test="field43 != null">
-        field43,
-      </if>
+            <if test="field1 != null">
+                field1,
+            </if>
+            <if test="field2 != null">
+                field2,
+            </if>
+            <if test="field3 != null">
+                field3,
+            </if>
+            <if test="field4 != null">
+                field4,
+            </if>
+            <if test="field5 != null">
+                field5,
+            </if>
+            <if test="field6 != null">
+                field6,
+            </if>
+            <if test="field7 != null">
+                field7,
+            </if>
+            <if test="field8 != null">
+                field8,
+            </if>
+            <if test="field9 != null">
+                field9,
+            </if>
+            <if test="field10 != null">
+                field10,
+            </if>
+            <if test="field11 != null">
+                field11,
+            </if>
+            <if test="field12 != null">
+                field12,
+            </if>
+            <if test="field13 != null">
+                field13,
+            </if>
+            <if test="field14 != null">
+                field14,
+            </if>
+            <if test="field15 != null">
+                field15,
+            </if>
+            <if test="field16 != null">
+                field16,
+            </if>
+            <if test="field17 != null">
+                field17,
+            </if>
+            <if test="field18 != null">
+                field18,
+            </if>
+            <if test="field19 != null">
+                field19,
+            </if>
+            <if test="field20 != null">
+                field20,
+            </if>
+            <if test="field21 != null">
+                field21,
+            </if>
+            <if test="field22 != null">
+                field22,
+            </if>
+            <if test="field23 != null">
+                field23,
+            </if>
+            <if test="field24 != null">
+                field24,
+            </if>
+            <if test="field25 != null">
+                field25,
+            </if>
+            <if test="field26 != null">
+                field26,
+            </if>
+            <if test="field27 != null">
+                field27,
+            </if>
+            <if test="field28 != null">
+                field28,
+            </if>
+            <if test="field29 != null">
+                field29,
+            </if>
+            <if test="field30 != null">
+                field30,
+            </if>
+            <if test="field31 != null">
+                field31,
+            </if>
+            <if test="field32 != null">
+                field32,
+            </if>
+            <if test="field33 != null">
+                field33,
+            </if>
+            <if test="field34 != null">
+                field34,
+            </if>
+            <if test="field35 != null">
+                field35,
+            </if>
+            <if test="field36 != null">
+                field36,
+            </if>
+            <if test="field37 != null">
+                field37,
+            </if>
+            <if test="field38 != null">
+                field38,
+            </if>
+            <if test="field39 != null">
+                field39,
+            </if>
+            <if test="field40 != null">
+                field40,
+            </if>
+            <if test="field41 != null">
+                field41,
+            </if>
+            <if test="field42 != null">
+                field42,
+            </if>
+            <if test="field43 != null">
+                field43,
+            </if>
 
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-              <if test="field1 != null">
-        #{field1},
-      </if>
-      <if test="field2 != null">
-        #{field2},
-      </if>
-      <if test="field3 != null">
-        #{field3},
-      </if>
-      <if test="field4 != null">
-        #{field4},
-      </if>
-      <if test="field5 != null">
-        #{field5},
-      </if>
-      <if test="field6 != null">
-        #{field6},
-      </if>
-      <if test="field7 != null">
-        #{field7},
-      </if>
-      <if test="field8 != null">
-        #{field8},
-      </if>
-      <if test="field9 != null">
-        #{field9},
-      </if>
-      <if test="field10 != null">
-        #{field10},
-      </if>
-      <if test="field11 != null">
-        #{field11},
-      </if>
-      <if test="field12 != null">
-        #{field12},
-      </if>
-      <if test="field13 != null">
-        #{field13},
-      </if>
-      <if test="field14 != null">
-        #{field14},
-      </if>
-      <if test="field15 != null">
-        #{field15},
-      </if>
-      <if test="field16 != null">
-        #{field16},
-      </if>
-      <if test="field17 != null">
-        #{field17},
-      </if>
-      <if test="field18 != null">
-        #{field18},
-      </if>
-      <if test="field19 != null">
-        #{field19},
-      </if>
-      <if test="field20 != null">
-        #{field20},
-      </if>
-      <if test="field21 != null">
-        #{field21},
-      </if>
-      <if test="field22 != null">
-        #{field22},
-      </if>
-      <if test="field23 != null">
-        #{field23},
-      </if>
-      <if test="field24 != null">
-        #{field24},
-      </if>
-      <if test="field25 != null">
-        #{field25},
-      </if>
-      <if test="field26 != null">
-        #{field26},
-      </if>
-      <if test="field27 != null">
-        #{field27},
-      </if>
-      <if test="field28 != null">
-        #{field28},
-      </if>
-      <if test="field29 != null">
-        #{field29},
-      </if>
-      <if test="field30 != null">
-        #{field30},
-      </if>
-      <if test="field31 != null">
-        #{field31},
-      </if>
-      <if test="field32 != null">
-        #{field32},
-      </if>
-      <if test="field33 != null">
-        #{field33},
-      </if>
-      <if test="field34 != null">
-        #{field34},
-      </if>
-      <if test="field35 != null">
-        #{field35},
-      </if>
-      <if test="field36 != null">
-        #{field36},
-      </if>
-      <if test="field37 != null">
-        #{field37},
-      </if>
-      <if test="field38 != null">
-        #{field38},
-      </if>
-      <if test="field39 != null">
-        #{field39},
-      </if>
-      <if test="field40 != null">
-        #{field40},
-      </if>
-      <if test="field41 != null">
-        #{field41},
-      </if>
-      <if test="field42 != null">
-        #{field42},
-      </if>
-      <if test="field43 != null">
-        #{field43},
-      </if>
+            <if test="field1 != null">
+                #{field1},
+            </if>
+            <if test="field2 != null">
+                #{field2},
+            </if>
+            <if test="field3 != null">
+                #{field3},
+            </if>
+            <if test="field4 != null">
+                #{field4},
+            </if>
+            <if test="field5 != null">
+                #{field5},
+            </if>
+            <if test="field6 != null">
+                #{field6},
+            </if>
+            <if test="field7 != null">
+                #{field7},
+            </if>
+            <if test="field8 != null">
+                #{field8},
+            </if>
+            <if test="field9 != null">
+                #{field9},
+            </if>
+            <if test="field10 != null">
+                #{field10},
+            </if>
+            <if test="field11 != null">
+                #{field11},
+            </if>
+            <if test="field12 != null">
+                #{field12},
+            </if>
+            <if test="field13 != null">
+                #{field13},
+            </if>
+            <if test="field14 != null">
+                #{field14},
+            </if>
+            <if test="field15 != null">
+                #{field15},
+            </if>
+            <if test="field16 != null">
+                #{field16},
+            </if>
+            <if test="field17 != null">
+                #{field17},
+            </if>
+            <if test="field18 != null">
+                #{field18},
+            </if>
+            <if test="field19 != null">
+                #{field19},
+            </if>
+            <if test="field20 != null">
+                #{field20},
+            </if>
+            <if test="field21 != null">
+                #{field21},
+            </if>
+            <if test="field22 != null">
+                #{field22},
+            </if>
+            <if test="field23 != null">
+                #{field23},
+            </if>
+            <if test="field24 != null">
+                #{field24},
+            </if>
+            <if test="field25 != null">
+                #{field25},
+            </if>
+            <if test="field26 != null">
+                #{field26},
+            </if>
+            <if test="field27 != null">
+                #{field27},
+            </if>
+            <if test="field28 != null">
+                #{field28},
+            </if>
+            <if test="field29 != null">
+                #{field29},
+            </if>
+            <if test="field30 != null">
+                #{field30},
+            </if>
+            <if test="field31 != null">
+                #{field31},
+            </if>
+            <if test="field32 != null">
+                #{field32},
+            </if>
+            <if test="field33 != null">
+                #{field33},
+            </if>
+            <if test="field34 != null">
+                #{field34},
+            </if>
+            <if test="field35 != null">
+                #{field35},
+            </if>
+            <if test="field36 != null">
+                #{field36},
+            </if>
+            <if test="field37 != null">
+                #{field37},
+            </if>
+            <if test="field38 != null">
+                #{field38},
+            </if>
+            <if test="field39 != null">
+                #{field39},
+            </if>
+            <if test="field40 != null">
+                #{field40},
+            </if>
+            <if test="field41 != null">
+                #{field41},
+            </if>
+            <if test="field42 != null">
+                #{field42},
+            </if>
+            <if test="field43 != null">
+                #{field43},
+            </if>
 
         </trim>
     </insert>
@@ -426,135 +426,135 @@
     <update id="updateDrugDictTemp" parameterType="com.penghy.server.bean.ItemDict">
         UPDATE si_drug_dict_temp
         <set>
-              <if test="field1 != null">
-        field1 = #{field1},
-      </if>
-      <if test="field2 != null">
-        field2 = #{field2},
-      </if>
-      <if test="field3 != null">
-        field3 = #{field3},
-      </if>
-      <if test="field4 != null">
-        field4 = #{field4},
-      </if>
-      <if test="field5 != null">
-        field5 = #{field5},
-      </if>
-      <if test="field6 != null">
-        field6 = #{field6},
-      </if>
-      <if test="field7 != null">
-        field7 = #{field7},
-      </if>
-      <if test="field8 != null">
-        field8 = #{field8},
-      </if>
-      <if test="field9 != null">
-        field9 = #{field9},
-      </if>
-      <if test="field10 != null">
-        field10 = #{field10},
-      </if>
-      <if test="field11 != null">
-        field11 = #{field11},
-      </if>
-      <if test="field12 != null">
-        field12 = #{field12},
-      </if>
-      <if test="field13 != null">
-        field13 = #{field13},
-      </if>
-      <if test="field14 != null">
-        field14 = #{field14},
-      </if>
-      <if test="field15 != null">
-        field15 = #{field15},
-      </if>
-      <if test="field16 != null">
-        field16 = #{field16},
-      </if>
-      <if test="field17 != null">
-        field17 = #{field17},
-      </if>
-      <if test="field18 != null">
-        field18 = #{field18},
-      </if>
-      <if test="field19 != null">
-        field19 = #{field19},
-      </if>
-      <if test="field20 != null">
-        field20 = #{field20},
-      </if>
-      <if test="field21 != null">
-        field21 = #{field21},
-      </if>
-      <if test="field22 != null">
-        field22 = #{field22},
-      </if>
-      <if test="field23 != null">
-        field23 = #{field23},
-      </if>
-      <if test="field24 != null">
-        field24 = #{field24},
-      </if>
-      <if test="field25 != null">
-        field25 = #{field25},
-      </if>
-      <if test="field26 != null">
-        field26 = #{field26},
-      </if>
-      <if test="field27 != null">
-        field27 = #{field27},
-      </if>
-      <if test="field28 != null">
-        field28 = #{field28},
-      </if>
-      <if test="field29 != null">
-        field29 = #{field29},
-      </if>
-      <if test="field30 != null">
-        field30 = #{field30},
-      </if>
-      <if test="field31 != null">
-        field31 = #{field31},
-      </if>
-      <if test="field32 != null">
-        field32 = #{field32},
-      </if>
-      <if test="field33 != null">
-        field33 = #{field33},
-      </if>
-      <if test="field34 != null">
-        field34 = #{field34},
-      </if>
-      <if test="field35 != null">
-        field35 = #{field35},
-      </if>
-      <if test="field36 != null">
-        field36 = #{field36},
-      </if>
-      <if test="field37 != null">
-        field37 = #{field37},
-      </if>
-      <if test="field38 != null">
-        field38 = #{field38},
-      </if>
-      <if test="field39 != null">
-        field39 = #{field39},
-      </if>
-      <if test="field40 != null">
-        field40 = #{field40},
-      </if>
-      <if test="field41 != null">
-        field41 = #{field41},
-      </if>
-      <if test="field42 != null">
-        field42 = #{field42},
-      </if>
-      <if test="field43 != null">
-        field43 = #{field43},
-      </if>
+            <if test="field1 != null">
+                field1 = #{field1},
+            </if>
+            <if test="field2 != null">
+                field2 = #{field2},
+            </if>
+            <if test="field3 != null">
+                field3 = #{field3},
+            </if>
+            <if test="field4 != null">
+                field4 = #{field4},
+            </if>
+            <if test="field5 != null">
+                field5 = #{field5},
+            </if>
+            <if test="field6 != null">
+                field6 = #{field6},
+            </if>
+            <if test="field7 != null">
+                field7 = #{field7},
+            </if>
+            <if test="field8 != null">
+                field8 = #{field8},
+            </if>
+            <if test="field9 != null">
+                field9 = #{field9},
+            </if>
+            <if test="field10 != null">
+                field10 = #{field10},
+            </if>
+            <if test="field11 != null">
+                field11 = #{field11},
+            </if>
+            <if test="field12 != null">
+                field12 = #{field12},
+            </if>
+            <if test="field13 != null">
+                field13 = #{field13},
+            </if>
+            <if test="field14 != null">
+                field14 = #{field14},
+            </if>
+            <if test="field15 != null">
+                field15 = #{field15},
+            </if>
+            <if test="field16 != null">
+                field16 = #{field16},
+            </if>
+            <if test="field17 != null">
+                field17 = #{field17},
+            </if>
+            <if test="field18 != null">
+                field18 = #{field18},
+            </if>
+            <if test="field19 != null">
+                field19 = #{field19},
+            </if>
+            <if test="field20 != null">
+                field20 = #{field20},
+            </if>
+            <if test="field21 != null">
+                field21 = #{field21},
+            </if>
+            <if test="field22 != null">
+                field22 = #{field22},
+            </if>
+            <if test="field23 != null">
+                field23 = #{field23},
+            </if>
+            <if test="field24 != null">
+                field24 = #{field24},
+            </if>
+            <if test="field25 != null">
+                field25 = #{field25},
+            </if>
+            <if test="field26 != null">
+                field26 = #{field26},
+            </if>
+            <if test="field27 != null">
+                field27 = #{field27},
+            </if>
+            <if test="field28 != null">
+                field28 = #{field28},
+            </if>
+            <if test="field29 != null">
+                field29 = #{field29},
+            </if>
+            <if test="field30 != null">
+                field30 = #{field30},
+            </if>
+            <if test="field31 != null">
+                field31 = #{field31},
+            </if>
+            <if test="field32 != null">
+                field32 = #{field32},
+            </if>
+            <if test="field33 != null">
+                field33 = #{field33},
+            </if>
+            <if test="field34 != null">
+                field34 = #{field34},
+            </if>
+            <if test="field35 != null">
+                field35 = #{field35},
+            </if>
+            <if test="field36 != null">
+                field36 = #{field36},
+            </if>
+            <if test="field37 != null">
+                field37 = #{field37},
+            </if>
+            <if test="field38 != null">
+                field38 = #{field38},
+            </if>
+            <if test="field39 != null">
+                field39 = #{field39},
+            </if>
+            <if test="field40 != null">
+                field40 = #{field40},
+            </if>
+            <if test="field41 != null">
+                field41 = #{field41},
+            </if>
+            <if test="field42 != null">
+                field42 = #{field42},
+            </if>
+            <if test="field43 != null">
+                field43 = #{field43},
+            </if>
 
         </set>
         WHERE id = #{id}
@@ -569,7 +569,8 @@
 
 
     <!-- 查询所有 -->
-    <select id="queryDrugDictTempList" resultType="com.penghy.server.bean.ItemDict" parameterType="com.penghy.server.bean.ItemDict">
+    <select id="queryDrugDictTempList" resultType="com.penghy.server.bean.ItemDict"
+            parameterType="com.penghy.server.bean.ItemDict">
         SELECT
         <include refid="baseColumnList"/>
         FROM si_drug_dict_temp
@@ -577,11 +578,12 @@
     </select>
 
     <!-- 单个查询 -->
-    <select id="getDrugDictTemp" parameterType="com.penghy.server.bean.ItemDict" resultType="com.penghy.server.bean.ItemDict">
+    <select id="getDrugDictTemp" parameterType="com.penghy.server.bean.ItemDict"
+            resultType="com.penghy.server.bean.ItemDict">
         SELECT
         <include refid="baseColumnList"/>
         FROM si_drug_dict_temp
-        WHERE delete_flag  = 0
+        WHERE delete_flag = 0
         <if test="id != null">
             AND id = #{id}
         </if>

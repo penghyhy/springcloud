@@ -17,8 +17,8 @@ public class testab {
         ImportParams importParams = new ImportParams();
         importParams.setSheetNum(1);
         File file1 = new File("C:\\Users\\13735\\Desktop\\郑州市第三人民医院出差发票\\工作簿1.xlsx");
-        drugDictList  = ExcelImportUtil.importExcel(file1, DrugDict.class, importParams);
-        System.out.println(System.currentTimeMillis()-start);
+        drugDictList = ExcelImportUtil.importExcel(file1, DrugDict.class, importParams);
+        System.out.println(System.currentTimeMillis() - start);
         System.out.println(drugDictList);
         String s = new String("NCLGD20190035a\t(新)喷剂敷料\t1989-12-31\t99\t3\tpjfl\tkygo\t\t消护舒缓型：3g、5g、10g、15g、20g、30g、50\t\t1\t粤中械备20190035号\t通常为溶液或软膏（不包括凝胶）。所含成分不具有药理学作用。所含成分不可被人体吸收。非无菌提供。通过在创面表面形成保护层，起物理屏障作用。用于小创口、擦伤、切割伤等浅表性创面及周围皮肤的护理。\t\t\t\t1\t\tC1701022160400012087\t200\t中山市粤美医疗生物科技有限公司\t1\t\t粤中械备20190035号\t\t\t1\t1\t\t\t1\t\t2\t1\t\t1\t0\t1\t0\t\t0\t0\t30530983\t2020-7-22\t\t\t\n");
 //        String aa = "NCLJ20152142328\t(新)疤痕硅凝胶\t1989-12-31\t99\t03\tbhgnj\tuudue\t\t15ml\t\t1\t国械注进20152142328\t\"疤痕硅凝胶\t15ml\t530.00\t国械注进20152142328\t2025.07.14\t奇克勒斯特有限公司\t本产品是一种处理疤痕的外用硅凝胶。本产品成分为二甲聚硅氧烷（64%）、聚硅氧化合物（15%）、鲸蜡硬质基聚二甲基硅氧烷交联聚合物（18%）和环己硅氧烷（3%）。\t该产品与其他标准疤痕治疗方法配合使用，适用于辅助改善皮肤上的小面积部位或手术缝合伤口愈合后留下的线状疤痕，不用于未愈合的伤口。该产品与其他标准疤痕治疗方法配合使用，适用于辅助改善皮肤上的小面积部位或手术缝合伤口愈合后留下的线状疤痕，不用于未愈合的伤口。\"\t\t\t\t1\t\tC1702012160100000572\t530\t奇克勒斯特有限公司\t1\t\t国械注进20152142328\t\t\t1\t1\t\t\t1\t\t02\t1\t\t2\t0\t1\t0\t\t0\t0\t30531131\t2020-09-08\t\t\t";
@@ -54,9 +54,6 @@ public class testab {
 //        bb.bb2();
 //        bb.aa();
 //        bb.aa2();
-
-
-
 
 
 }

@@ -11,21 +11,21 @@ import javax.xml.ws.Endpoint;
  * WebService
  * 将 Java 类标记为实现 Web Service，或者将 Java 接口标记为定义 Web Service 接口
  */
-@WebService(serviceName="MyService")
+@WebService(serviceName = "MyService")
 public class MyWebService {
 
-    @WebResult(name="myReturn")
-    public String sayHello(@WebParam(name="name") String name){
-        return  "hello: " + name;
+    @WebResult(name = "myReturn")
+    public String sayHello(@WebParam(name = "name") String name) {
+        return "hello: " + name;
     }
 
-    public String sayGoodbye(String name){
+    public String sayGoodbye(String name) {
 
-        return  "goodbye: " + name;
+        return "goodbye: " + name;
     }
 
-    @WebMethod(exclude=true)//当前方法不被发布出去
-    public String sayHello2(String name){
+    @WebMethod(exclude = true)//当前方法不被发布出去
+    public String sayHello2(String name) {
         return "hello " + name;
     }
 

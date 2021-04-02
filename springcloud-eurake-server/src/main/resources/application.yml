@@ -6,14 +6,14 @@ server:
 spring:
   application:
     name: eurake-server
-#  data:
-#    elasticsearch:
-#      cluster-name: elasticsearch # es集群的名称
-#        cluster-nodes: 127.0.0.1:9200 # es的连接地址及端口号
-#      repositories:
-#        enabled: true
-#  Jackson:
-#    default-property-inclusion: non_null  # 返回的结果是null的就排除
+  #  data:
+  #    elasticsearch:
+  #      cluster-name: elasticsearch # es集群的名称
+  #        cluster-nodes: 127.0.0.1:9200 # es的连接地址及端口号
+  #      repositories:
+  #        enabled: true
+  #  Jackson:
+  #    default-property-inclusion: non_null  # 返回的结果是null的就排除
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/sis_zzsy?serverTimezone=GMT%2B8
     username: root
@@ -38,7 +38,7 @@ spring:
         timeout: 5000
 
 
-
+#
 eureka:
   instance:
     # 使用 ip 代替实例名
@@ -50,4 +50,21 @@ eureka:
   client:
     serviceUrl:
       # 注册中心地址
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/,http://${eureka.instance.hostname}:8762/eureka/,http://${eureka.instance.hostname}:8763/eureka/
+
+#eureka:
+#  instance:
+#    # 使用 ip 代替实例名
+#    prefer-ip-address: true
+#    # 实例的主机名
+#    hostname: ${spring.cloud.client.ip-address}
+#    # 实例的 ID 规则
+#    instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+#  client:
+#    # 是否向注册中心注册自己
+#    registerWithEureka: false
+#    # 是否向注册中心获取注册信息
+#    fetchRegistry: false
+#    serviceUrl:
+#      # 注册中心地址
+#      defaultZone: http://${eureka.instance.hostname}:8761/eureka/

@@ -376,7 +376,9 @@ public class Pinyin4jUtil {
         }
         return sreturn;
     }
+
     private static final Pattern NUMBER = Pattern.compile("[0-9]");
+
     public static boolean isNumber(String str) {
         Pattern pattern = NUMBER;
         Matcher isNum = pattern.matcher(str);
@@ -425,13 +427,11 @@ public class Pinyin4jUtil {
 //        System.out.println(datetime2);
 
 
-
-
         String[] s = {"(新)普通门诊挂号费", "This is a test", "a,b; c[d]", "标，点。",
                 "圆角数字１２３，特殊符号·￥%——……", "繁体字：西安會議", "西安", "棽 燊 顕 峣 山 "};
         for (int i = 0; i < s.length; i++) {
             long l1 = System.currentTimeMillis();
-            System.out.println(s[i] + " 的首拼:" + getPinYin(s[i]).replaceAll("\\(X\\)",""));
+            System.out.println(s[i] + " 的首拼:" + getPinYin(s[i]).replaceAll("\\(X\\)", ""));
             System.out.println("获取全拼和首拼共用了" + (System.currentTimeMillis() - l1)
                     + "毫秒/n");
         }

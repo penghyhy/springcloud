@@ -5,6 +5,25 @@
     <packaging>pom</packaging>
     <modules>
         <module>springcloud-elasticsearch</module>
+        <module>springcloud-register-service</module>
+        <module>springcloud-register-service2</module>
+        <module>springcloud-eurake-server</module>
+        <module>springcloud-bean</module>
+        <module>springcloud-config-client</module>
+        <module>springcloud-config-server</module>
+        <module>springcloud-core</module>
+        <module>springcloud-eurake-client</module>
+        <module>springcloud-gateway-commons</module>
+        <module>springcloud-gateway-master-service</module>
+        <module>springcloud-hystrix</module>
+        <module>springcloud-my-test</module>
+        <module>springcloud-rabbitmq-consumer</module>
+        <module>springcloud-rabbitmq-provider</module>
+        <module>springcloud-webservice-client</module>
+        <module>springcloud-webservice-server</module>
+        <module>springcloud-rabbitmq-server</module>
+        <module>springcloud-register-service3</module>
+        <module>springcloud-register-service4</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

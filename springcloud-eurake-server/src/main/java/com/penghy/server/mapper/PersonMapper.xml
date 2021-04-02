@@ -297,54 +297,56 @@
     <!-- 查询所有 -->
     <select id="queryaaaaaList" resultType="com.penghy.server.bean.DrugDict1"
             parameterType="com.penghy.server.bean.DrugDict1">
-select * from si_drug_dict_phy where search_code1 is null or search_code1=''
+        select * from si_drug_dict_phy where search_code1 is null or search_code1=''
 
---         SELECT
--- 	*,
--- yka096_lx yka096Lx,
--- yka096_jm yka096Jm,
--- yka459_lx yka459Lx,
--- yka459_jm yka459Jm,
--- yka096_tj yka096Lj,
--- yka459_tj yka459Tj,
--- yka096_gs yka096Gs,
--- yka459_gs yka459Gs,
--- yka459_cg yka459Cg,
--- yka459_lb yka459Lb
--- FROM
--- 	si_item_dict_down
--- WHERE
--- 	yka001 IN ( '81', '82', '83', '84' )
+        -- SELECT
+        -- *,
+        -- yka096_lx yka096Lx,
+        -- yka096_jm yka096Jm,
+        -- yka459_lx yka459Lx,
+        -- yka459_jm yka459Jm,
+        -- yka096_tj yka096Lj,
+        -- yka459_tj yka459Tj,
+        -- yka096_gs yka096Gs,
+        -- yka459_gs yka459Gs,
+        -- yka459_cg yka459Cg,
+        -- yka459_lb yka459Lb
+        -- FROM
+        -- si_item_dict_down
+        -- WHERE
+        -- yka001 IN ( '81', '82', '83', '84' )
 
     </select>
 
 
     <select id="selectwowjoydrugdict" resultType="com.penghy.server.bean.DrugDict1"
             parameterType="com.penghy.server.bean.DrugDict1">
-             select t.increment_id incrementId,t.insure_drug_code insureDrugCode,t.drug_Chinese_name drugChineseName,t.* FROM si_drug_dict_0222 t
+        select t.increment_id incrementId,t.insure_drug_code insureDrugCode,t.drug_Chinese_name drugChineseName,t.* FROM
+        si_drug_dict_0222 t
     </select>
 
     <!-- 查询所有 -->
     <select id="selectDrugDict" resultType="com.penghy.server.bean.DrugDict1"
             parameterType="com.penghy.server.bean.DrugDict1">
-select *,increment_id incrementId,drug_Chinese_name drugChineseName from si_drug_dict_phy where search_code1 is null or search_code1=''
+        select *,increment_id incrementId,drug_Chinese_name drugChineseName from si_drug_dict_phy where search_code1 is
+        null or search_code1=''
 
---         SELECT
--- 	*,
--- yka096_lx yka096Lx,
--- yka096_jm yka096Jm,
--- yka459_lx yka459Lx,
--- yka459_jm yka459Jm,
--- yka096_tj yka096Lj,
--- yka459_tj yka459Tj,
--- yka096_gs yka096Gs,
--- yka459_gs yka459Gs,
--- yka459_cg yka459Cg,
--- yka459_lb yka459Lb
--- FROM
--- 	si_item_dict_down
--- WHERE
--- 	yka001 IN ( '81', '82', '83', '84' )
+        -- SELECT
+        -- *,
+        -- yka096_lx yka096Lx,
+        -- yka096_jm yka096Jm,
+        -- yka459_lx yka459Lx,
+        -- yka459_jm yka459Jm,
+        -- yka096_tj yka096Lj,
+        -- yka459_tj yka459Tj,
+        -- yka096_gs yka096Gs,
+        -- yka459_gs yka459Gs,
+        -- yka459_cg yka459Cg,
+        -- yka459_lb yka459Lb
+        -- FROM
+        -- si_item_dict_down
+        -- WHERE
+        -- yka001 IN ( '81', '82', '83', '84' )
 
     </select>
 

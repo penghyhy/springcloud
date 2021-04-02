@@ -624,54 +624,54 @@
     <!-- 单个更新 -->
     <update id="updateDrugDict" parameterType="com.penghy.server.bean.DrugDict">
         UPDATE
-          si_drug_dict
+        si_drug_dict
         set
-            dict_book_id = #{dictBookId},
-            insure_drug_code = #{insureDrugCode},
-            drug_standard_code = #{drugStandardCode},
-            drug_chinese_name = #{drugChineseName},
-            drug_chem_name = #{drugChemName},
-            drug_english_name = #{drugEnglishName},
-            insure_drug_spec = #{insureDrugSpec},
-            drug_dosage_form = #{drugDosageForm},
-            charge_item_code = #{chargeItemCode},
-            charge_item_name = #{chargeItemName},
-            drug_factory_name = #{drugFactoryName},
-            drug_package_unit = #{drugPackageUnit},
-            insu_drug_type = #{insuDrugType},
-            drug_min_dose = #{drugMinDose},
-            min_dose_unit = #{minDoseUnit},
-            drug_min_unit = #{drugMinUnit},
-            drug_daily_dosage = #{drugDailyDosage},
-            drug_usage_frequency = #{drugUsageFrequency},
-            drug_usage_method = #{drugUsageMethod},
-            item_apply_scope = #{itemApplyScope},
-            insure_drug_grade = #{insureDrugGrade},
-            drug_remark = #{drugRemark},
-            prescription_usage_flag = #{prescriptionUsageFlag},
-            standard_usage_posts = #{standardUsagePosts},
-            drug_standard_price = #{drugStandardPrice},
-            oi_flag = #{oiFlag},
-            outpatient_price_quota = #{outpatientPriceQuota},
-            inpatient_price_quota = #{inpatientPriceQuota},
-            outpatient_usage_quota = #{outpatientUsageQuota},
-            inpatient_usage_quota = #{inpatientUsageQuota},
-            drug_each_dose = #{drugEachDose},
-            item_limit_flag = #{itemLimitFlag},
-            item_approval_style = #{itemApprovalStyle},
-            drug_swicth_scale = #{drugSwicthScale},
-            drug_texture = #{drugTexture},
-            use_start_time = #{useStartTime},
-            use_end_time = #{useEndTime},
-            delete_flag = #{deleteFlag},
-            orderby = #{orderby},
-            search_code1 = #{searchCode1},
-            search_code2 = #{searchCode2},
-            search_code3 = #{searchCode3},
-            create_time = #{createTime},
-            creator = #{creator},
-            update_time = #{updateTime},
-            updater = #{updater}
+        dict_book_id = #{dictBookId},
+        insure_drug_code = #{insureDrugCode},
+        drug_standard_code = #{drugStandardCode},
+        drug_chinese_name = #{drugChineseName},
+        drug_chem_name = #{drugChemName},
+        drug_english_name = #{drugEnglishName},
+        insure_drug_spec = #{insureDrugSpec},
+        drug_dosage_form = #{drugDosageForm},
+        charge_item_code = #{chargeItemCode},
+        charge_item_name = #{chargeItemName},
+        drug_factory_name = #{drugFactoryName},
+        drug_package_unit = #{drugPackageUnit},
+        insu_drug_type = #{insuDrugType},
+        drug_min_dose = #{drugMinDose},
+        min_dose_unit = #{minDoseUnit},
+        drug_min_unit = #{drugMinUnit},
+        drug_daily_dosage = #{drugDailyDosage},
+        drug_usage_frequency = #{drugUsageFrequency},
+        drug_usage_method = #{drugUsageMethod},
+        item_apply_scope = #{itemApplyScope},
+        insure_drug_grade = #{insureDrugGrade},
+        drug_remark = #{drugRemark},
+        prescription_usage_flag = #{prescriptionUsageFlag},
+        standard_usage_posts = #{standardUsagePosts},
+        drug_standard_price = #{drugStandardPrice},
+        oi_flag = #{oiFlag},
+        outpatient_price_quota = #{outpatientPriceQuota},
+        inpatient_price_quota = #{inpatientPriceQuota},
+        outpatient_usage_quota = #{outpatientUsageQuota},
+        inpatient_usage_quota = #{inpatientUsageQuota},
+        drug_each_dose = #{drugEachDose},
+        item_limit_flag = #{itemLimitFlag},
+        item_approval_style = #{itemApprovalStyle},
+        drug_swicth_scale = #{drugSwicthScale},
+        drug_texture = #{drugTexture},
+        use_start_time = #{useStartTime},
+        use_end_time = #{useEndTime},
+        delete_flag = #{deleteFlag},
+        orderby = #{orderby},
+        search_code1 = #{searchCode1},
+        search_code2 = #{searchCode2},
+        search_code3 = #{searchCode3},
+        create_time = #{createTime},
+        creator = #{creator},
+        update_time = #{updateTime},
+        updater = #{updater}
         WHERE
         dict_book_id = #{dictBookId}
         and
@@ -787,18 +787,18 @@
     <!--获取保险药品目录-->
     <select id="selectDrugDict" parameterType="map" resultType="map">
         SELECT
-            IFNULL(item_approval_style,'') siApproveType,
-            IFNULL(insure_drug_grade,'') siItemGrade,
-            IFNULL(drug_standard_code,'') standardCode,
-            IFNULL(charge_item_code,'') siItemIncome,
-            IFNULL(item_apply_scope,'') siApplyRange,
-            IFNULL(drug_remark,'') siRemark,
-            IFNULL(item_limit_flag,'') siRangeFlag,
-            IFNULL(drug_Chinese_name,'') siItemName
+        IFNULL(item_approval_style,'') siApproveType,
+        IFNULL(insure_drug_grade,'') siItemGrade,
+        IFNULL(drug_standard_code,'') standardCode,
+        IFNULL(charge_item_code,'') siItemIncome,
+        IFNULL(item_apply_scope,'') siApplyRange,
+        IFNULL(drug_remark,'') siRemark,
+        IFNULL(item_limit_flag,'') siRangeFlag,
+        IFNULL(drug_Chinese_name,'') siItemName
         FROM
-            si_drug_dict
+        si_drug_dict
         WHERE
-            dict_book_id = #{dictBookId}
+        dict_book_id = #{dictBookId}
         AND insure_drug_code=#{siItemId}
         <![CDATA[
         AND (use_start_time <= #{happendTime} OR use_start_time IS NULL)

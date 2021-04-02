@@ -8,7 +8,7 @@ import cn.afterturn.easypoi.excel.annotation.Excel;
  * @author tianshuai
  * @date 2019-03-26
  */
-public class DrugDict  {
+public class DrugDict {
     private static final long serialVersionUID = 1L;
 
     /**

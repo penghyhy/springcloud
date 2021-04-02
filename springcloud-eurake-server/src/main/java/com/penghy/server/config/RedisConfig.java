@@ -11,20 +11,20 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 @Configuration
 public class RedisConfig {
 
-	@Bean
-	public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
-		// 配置redisTemplate
-		RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();
-		redisTemplate.setConnectionFactory(redisConnectionFactory);
-		RedisSerializer stringSerializer = new StringRedisSerializer();
-		redisTemplate.setKeySerializer(stringSerializer); // key序列化
-		redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer()); // value序列化
-		redisTemplate.setHashKeySerializer(stringSerializer); // Hash key序列化
-		redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer()); // Hash value序列化
-		redisTemplate.afterPropertiesSet();
-		return redisTemplate;
+    @Bean
+    public RedisTemplate<String, Object> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
+        // 配置redisTemplate
+        RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();
+        redisTemplate.setConnectionFactory(redisConnectionFactory);
+        RedisSerializer stringSerializer = new StringRedisSerializer();
+        redisTemplate.setKeySerializer(stringSerializer); // key序列化
+        redisTemplate.setValueSerializer(new GenericJackson2JsonRedisSerializer()); // value序列化
+        redisTemplate.setHashKeySerializer(stringSerializer); // Hash key序列化
+        redisTemplate.setHashValueSerializer(new GenericJackson2JsonRedisSerializer()); // Hash value序列化
+        redisTemplate.afterPropertiesSet();
+        return redisTemplate;
 
-	}
+    }
 
 //	@Bean
 //	public RedisTemplate<Object, Object> redisTemplate() throws UnknownHostException {
