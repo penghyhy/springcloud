@@ -12,7 +12,8 @@ eureka:
     # 使用 ip 代替实例名
     prefer-ip-address: true
     # 实例的主机名
-    hostname: ${spring.cloud.client.ip-address}
+    #    hostname: ${spring.cloud.client.ip-address}
+    hostname: registerservice1
     # 实例的 ID 规则
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
   client:
@@ -22,4 +23,4 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       # 注册中心地址
-      defaultZone: http://${eureka.instance.hostname}:8762/eureka/,http://${eureka.instance.hostname}:8763/eureka/
+      defaultZone: http://registerservice2:8762/eureka/,http://registerservice3:8763/eureka/
