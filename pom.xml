@@ -23,7 +23,6 @@
         <module>springcloud-webservice-server</module>
         <module>springcloud-rabbitmq-server</module>
         <module>springcloud-register-service3</module>
-        <module>springcloud-register-service4</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
