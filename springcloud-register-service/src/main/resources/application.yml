@@ -23,4 +23,12 @@ eureka:
     fetchRegistry: false
     serviceUrl:
       # 注册中心地址
-      defaultZone: http://registerservice2:8762/eureka/,http://registerservice3:8763/eureka/
+      defaultZone: http://registerservice1:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
