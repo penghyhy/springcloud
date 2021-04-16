@@ -7,7 +7,6 @@
         <module>springcloud-elasticsearch</module>
         <module>springcloud-register-service</module>
         <module>springcloud-register-service2</module>
-        <module>springcloud-eurake-server</module>
         <module>springcloud-bean</module>
         <module>springcloud-config-client</module>
         <module>springcloud-config-server</module>
@@ -26,6 +25,7 @@
         <module>springcloud-register-service4</module>
         <module>springcloud-boot-admin-server</module>
         <module>springcloud-boot-admin-client</module>
+        <module>springcloud-test-server</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
