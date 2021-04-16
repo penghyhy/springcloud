@@ -24,6 +24,9 @@ eureka:
     serviceUrl:
       # 注册中心地址
       defaultZone: http://registerservice1:8761/eureka/
+  #设置改参数值为false，以确保注册中心将不可用的实例删除
+  server:
+    enable-self-preservation: true
 management:
   endpoints:
     web:
