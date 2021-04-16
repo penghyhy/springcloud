@@ -3,6 +3,20 @@ server:
 spring:
   application:
     name: bootadmin-service
+  security:
+    user:
+      name: "admin"
+      password: "admin"
+  mail:
+    host: smtp.163.com
+    username: 13735485749@163.com
+    password: FTWVPMBBXCXMBMCL
+  boot:
+    admin:
+      notify:
+        mail:
+          to: huaiyang.peng@wowjoy.cn
+          from: 13735485749@163.com
 eureka:
   instance:
     # 使用 ip 代替实例名
@@ -11,6 +25,9 @@ eureka:
     hostname: ${spring.cloud.client.ip-address}
     # 实例的 ID 规则
     instance-id: ${spring.cloud.client.ip-address}:${spring.application.name}:${server.port}
+    metadata-map:
+      user.name: ${spring.security.user.name}
+      user.password: ${spring.security.user.password}
   client:
     serviceUrl:
       # 注册中心地址

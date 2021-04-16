@@ -1,6 +1,6 @@
 package com.penghy.mytest.util;
 
-import com.eimageglobal.rsa.util.RSAUtils;
+//import com.eimageglobal.rsa.util.RSAUtils;
 
 import java.io.UnsupportedEncodingException;
 import java.util.Base64;
@@ -67,7 +67,7 @@ public class Base64Util {
         String password = "22222";
         Map<String, Object> params = new HashMap<>();
         params.put("aaa", "52223019741117043X");
-        encryptByPublickey(params);
+//        encryptByPublickey(params);
         params.put("bbb", "2020");
         params.put("ccc", "");
 
@@ -119,24 +119,24 @@ public class Base64Util {
     }
 
 
-    public static String encryptByPublickey(Map<String, Object> params) {
-//        String hospitalId = params.get("hospitalId").toString();
-//        String time = params.get("time").toString();
-//        String patientId = params.get("patientId").toString();
-//        String accessNumber = params.get("accessNumber").toString();
-
-        String data = "复方氨基酸（18AA）复方氨基酸（18AA-Ⅰ）复方氨基酸（18AA-Ⅱ）复方氨基酸（18AA-Ⅲ）";
-        System.out.println(data.getBytes().length);
-
-        try {
-            String data1 = "hospitalId=08780006&time=2020-11-09 12:45:42&patientId=2011090195&accessNumber=DX202011090778";
-            String key = RSAUtils.encryptByPublicKey(data1, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC1Rf9O2S4dbJ9rPWiSGJC5AjbqzeQpWccFc5uFqyndI70OZl/OLdxJJh9f1LrhNO78vpuguD+bFLzIbKuxLnEKxgXMxYO42F+Pa2\n" +
-                    "B0a5k3LY4ZDgNaH+h6rWtMrz49pMiICKO/JCEzJTfZWbTgUM+ksk/nvvTJAuF5dGCnfg8tSQIDAQAB");
-            System.out.println(key);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return "";
-    }
+//    public static String encryptByPublickey(Map<String, Object> params) {
+////        String hospitalId = params.get("hospitalId").toString();
+////        String time = params.get("time").toString();
+////        String patientId = params.get("patientId").toString();
+////        String accessNumber = params.get("accessNumber").toString();
+//
+//        String data = "复方氨基酸（18AA）复方氨基酸（18AA-Ⅰ）复方氨基酸（18AA-Ⅱ）复方氨基酸（18AA-Ⅲ）";
+//        System.out.println(data.getBytes().length);
+//
+//        try {
+//            String data1 = "hospitalId=08780006&time=2020-11-09 12:45:42&patientId=2011090195&accessNumber=DX202011090778";
+//            String key = RSAUtils.encryptByPublicKey(data1, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC1Rf9O2S4dbJ9rPWiSGJC5AjbqzeQpWccFc5uFqyndI70OZl/OLdxJJh9f1LrhNO78vpuguD+bFLzIbKuxLnEKxgXMxYO42F+Pa2\n" +
+//                    "B0a5k3LY4ZDgNaH+h6rWtMrz49pMiICKO/JCEzJTfZWbTgUM+ksk/nvvTJAuF5dGCnfg8tSQIDAQAB");
+//            System.out.println(key);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//
+//        return "";
+//    }
 }

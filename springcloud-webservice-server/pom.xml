@@ -3,10 +3,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.2.7.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <artifactId>springcloud</artifactId>
+        <groupId>com.penghy</groupId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.penghy</groupId>
     <artifactId>springcloud-webservice-server</artifactId>
@@ -34,7 +33,7 @@
             <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client -->
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-            <version>2.1.5.RELEASE</version>
+            <version>3.0.2</version>
 
         </dependency>
 
@@ -71,7 +70,7 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-amqp</artifactId>
-            <version>2.2.1.RELEASE</version>
+            <version>2.3.0.RELEASE</version>
         </dependency>
 
 
