@@ -8,11 +8,10 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <groupId>com.penghy</groupId>
-    <artifactId>springcloud-eurake-server</artifactId>
+    <artifactId>springcloud-test-server</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>eurakeServer</name>
+    <name>springcloud-test-server</name>
     <description>Demo project for Spring Boot</description>
-
     <properties>
         <java.version>1.8</java.version>
         <spring-boot-admin.version>2.3.1</spring-boot-admin.version>
@@ -86,11 +85,11 @@
             </exclusions>
         </dependency>
 
-<!--        &lt;!&ndash;Elasticsearch相关依赖&ndash;&gt;-->
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>-->
-<!--        </dependency>-->
+        <!--        &lt;!&ndash;Elasticsearch相关依赖&ndash;&gt;-->
+        <!--        <dependency>-->
+        <!--            <groupId>org.springframework.boot</groupId>-->
+        <!--            <artifactId>spring-boot-starter-data-elasticsearch</artifactId>-->
+        <!--        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -122,12 +121,12 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.4.4</version>
             </plugin>
         </plugins>
         <resources>
