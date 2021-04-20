@@ -7,16 +7,16 @@ spring:
     user:
       name: "admin"
       password: "admin"
-  mail:
-    host: smtp.163.com
-    username: 13735485749@163.com
-    password: FTWVPMBBXCXMBMCL
-  boot:
-    admin:
-      notify:
-        mail:
-          to: huaiyang.peng@wowjoy.cn
-          from: 13735485749@163.com
+#  mail:
+#    host: smtp.163.com
+#    username: 13735485749@163.com
+#    password: FTWVPMBBXCXMBMCL
+#  boot:
+#    admin:
+#      notify:
+#        mail:
+#          to: huaiyang.peng@wowjoy.cn
+#          from: 13735485749@163.com
 eureka:
   instance:
     # 使用 ip 代替实例名
@@ -31,7 +31,7 @@ eureka:
   client:
     serviceUrl:
       # 注册中心地址
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/,http://${eureka.instance.hostname}:8762/eureka/,http://${eureka.instance.hostname}:8763/eureka/,http://${eureka.instance.hostname}:8764/eureka/
 management:
   endpoints:
     web:

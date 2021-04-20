@@ -26,6 +26,8 @@
         <module>springcloud-boot-admin-server</module>
         <module>springcloud-boot-admin-client</module>
         <module>springcloud-test-server</module>
+        <module>springcloud-eureka-producer</module>
+        <module>springcloud-eureka-consumer</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -48,6 +50,34 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
+
+<!--        &lt;!&ndash; 使用springMVC注解，引入web依赖包 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>org.springframework.boot</groupId>-->
+<!--            <artifactId>spring-boot-starter-web</artifactId>-->
+<!--            <version>2.4.4</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; 提供者消费者 &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            &lt;!&ndash; https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-netflix-eureka-client &ndash;&gt;-->
+<!--            <groupId>org.springframework.cloud</groupId>-->
+<!--            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>-->
+<!--            <version>3.0.2</version>-->
+<!--        </dependency>-->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-devtools</artifactId>

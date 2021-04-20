@@ -322,7 +322,7 @@
     <select id="selectwowjoydrugdict" resultType="com.penghy.server.bean.DrugDict1"
             parameterType="com.penghy.server.bean.DrugDict1">
         select t.increment_id incrementId,t.insure_drug_code insureDrugCode,t.drug_Chinese_name drugChineseName,t.* FROM
-        si_drug_dict_0222 t
+        si_drug_dict t
     </select>
 
     <!-- 查询所有 -->
