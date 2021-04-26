@@ -12,9 +12,7 @@
         <module>springcloud-config-server</module>
         <module>springcloud-core</module>
         <module>springcloud-eurake-client</module>
-        <module>springcloud-gateway-commons</module>
         <module>springcloud-gateway-master-service</module>
-        <module>springcloud-hystrix</module>
         <module>springcloud-my-test</module>
         <module>springcloud-rabbitmq-consumer</module>
         <module>springcloud-rabbitmq-provider</module>
@@ -28,6 +26,7 @@
         <module>springcloud-test-server</module>
         <module>springcloud-eureka-producer</module>
         <module>springcloud-eureka-consumer</module>
+        <module>springcloud-geteway-service</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

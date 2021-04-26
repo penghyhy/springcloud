@@ -324,6 +324,10 @@
         select t.increment_id incrementId,t.insure_drug_code insureDrugCode,t.drug_Chinese_name drugChineseName,t.* FROM
         si_drug_dict t
     </select>
+    <select id="selectwowjoypubdict" resultType="com.penghy.server.bean.PubDict"
+            parameterType="com.penghy.server.bean.PubDict">
+        select t.increment_id incrementId,t.insure_dict_name insureDictName,t.search_code1 searchCode1 from si_pub_dict t where t.search_code1 is null
+    </select>
 
     <!-- 查询所有 -->
     <select id="selectDrugDict" resultType="com.penghy.server.bean.DrugDict1"

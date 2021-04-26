@@ -12,7 +12,7 @@ public class HelloController {
     @Autowired
     private HelloRemoteHystrixService helloRemoteHystrixService;
 
-    @RequestMapping("/hello/{name}")
+    @RequestMapping("/hello1/{name}")
     public String index(@PathVariable("name") String name) {
         return helloRemoteHystrixService.hello(name);
     }

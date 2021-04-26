@@ -5,13 +5,16 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.penghy.server.bean.DrugDict1;
 import com.penghy.server.bean.Person;
+import com.penghy.server.bean.PubDict;
 import com.penghy.server.service.PersonService;
 import com.penghy.server.util.Pinyin4jUtil;
+import com.penghy.server.util.RedisUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -38,6 +41,20 @@ public class TestController {
             personService.updatetwowjoydrugdict(drugDict.getIncrementId(), get);
         }
 //        List<Disease1> cc = dd;
+    }
+    /**
+     * 查询sis服务中的通用项目信息
+     *
+     * @throws Exception
+     */
+    @RequestMapping("/selectwowjoypubdict")
+    public void selectwowjoypubdict() throws Exception {
+        List<PubDict> dd = personService.selectwowjoypubdict();
+        RedisUtil.setNoExpiry("list:aaa:bbb",(Serializable)dd);
+        for (PubDict pubDict : dd) {
+            String get = Pinyin4jUtil.getPinYin(pubDict.getInsureDictName());
+            personService.updatetwowjoypubdict(pubDict.getIncrementId(), get);
+        }
     }
 
     @ResponseBody

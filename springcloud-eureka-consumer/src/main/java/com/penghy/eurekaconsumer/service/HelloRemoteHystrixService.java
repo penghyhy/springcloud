@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(name = "springcloud-eureka-producer", contextId = "HelloRemoteHystrixService", fallback = HelloRemoteHystrixServiceImpl.class)
 public interface HelloRemoteHystrixService {
-    @RequestMapping(method = RequestMethod.GET,value = "/hello")
+    @RequestMapping(value = "/hello")
     String hello(@RequestParam(value = "name") String name);
 }

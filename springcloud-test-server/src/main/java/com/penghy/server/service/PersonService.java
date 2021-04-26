@@ -148,6 +148,9 @@ public class PersonService {
         personMapper.updatetwowjoydrugdict(incrementId, searchCode1);
     }
 
+    public void updatetwowjoypubdict(Integer incrementId, String searchCode1) {
+        personMapper.updatetwowjoypubdict(incrementId, searchCode1);
+    }
 
     public void insertDrugDict() {
         List<ItemDict> itemDicts = drugDictTempMapper.queryDrugDictTempList(new ItemDict());
@@ -574,6 +577,14 @@ public class PersonService {
      */
     public List<DrugDict1> selectwowjoydrugdict() {
         return personMapper.selectwowjoydrugdict();
+    }
+    /**
+     * 查询sis服务中的疾病信息表
+     *
+     * @return
+     */
+    public List<PubDict> selectwowjoypubdict() {
+        return personMapper.selectwowjoypubdict();
     }
 
 

@@ -16,7 +16,7 @@ spring:
   #  Jackson:
   #    default-property-inclusion: non_null  # 返回的结果是null的就排除
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/sis_zzsy?serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/sis?serverTimezone=GMT%2B8
     username: root
     password: root123456
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -52,7 +52,7 @@ eureka:
   client:
     serviceUrl:
       # 注册中心地址
-      defaultZone: http://${eureka.instance.hostname}:8761/eureka/,http://${eureka.instance.hostname}:8762/eureka/,http://${eureka.instance.hostname}:8763/eureka/,http://${eureka.instance.hostname}:8764/eureka/
+      defaultZone: http://${eureka.instance.hostname}:8761/eureka/
 management:
   endpoints:
     web:
@@ -66,3 +66,5 @@ logging:
     com:
       penghy:
         server: debug
+  file:
+    name: test-server.log
