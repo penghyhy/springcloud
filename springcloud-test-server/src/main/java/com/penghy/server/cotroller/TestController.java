@@ -4,6 +4,7 @@ package com.penghy.server.cotroller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.penghy.server.bean.DrugDict1;
+import com.penghy.server.bean.OrderDict1;
 import com.penghy.server.bean.Person;
 import com.penghy.server.bean.PubDict;
 import com.penghy.server.service.PersonService;
@@ -39,6 +40,20 @@ public class TestController {
         for (DrugDict1 drugDict : dd) {
             String get = Pinyin4jUtil.getPinYin(drugDict.getDrugChineseName());
             personService.updatetwowjoydrugdict(drugDict.getIncrementId(), get);
+        }
+//        List<Disease1> cc = dd;
+    }
+    /**
+     * 查询sis服务中的药品信息
+     *
+     * @throws Exception
+     */
+    @RequestMapping("/selectwowjoyorderdict")
+    public void selectwowjoyorderdict() throws Exception {
+        List<OrderDict1> dd = personService.selectwowjoyorderdict();
+        for (OrderDict1 orderDict1 : dd) {
+            String get = Pinyin4jUtil.getPinYin(orderDict1.getOrderChineseName());
+            personService.updatetwowjoyorderdict(orderDict1.getIncrementId(), get);
         }
 //        List<Disease1> cc = dd;
     }

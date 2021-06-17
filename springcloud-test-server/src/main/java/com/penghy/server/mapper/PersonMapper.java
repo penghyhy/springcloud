@@ -24,8 +24,12 @@ public interface PersonMapper {
     void update(@Param("incrementId") int incrementId, @Param("searchCode1") String searchCode1);
 
 
-    @Update("update si_drug_dict_0222 set search_code1 = #{searchCode1} where increment_id = #{incrementId}")
+    @Update("update si_drug_dict set search_code1 = #{searchCode1} where increment_id = #{incrementId}")
     void updatetwowjoydrugdict(@Param("incrementId") int incrementId, @Param("searchCode1") String searchCode1);
+
+
+    @Update("update si_order_dict_copy2 set search_code1 = #{searchCode1} where increment_id = #{incrementId}")
+    void updatetwowjoyorderdict(@Param("incrementId") int incrementId, @Param("searchCode1") String searchCode1);
 
 
     @Update("update si_pub_dict set search_code1 = #{searchCode1} where increment_id = #{incrementId}")
@@ -44,6 +48,7 @@ public interface PersonMapper {
     List<DrugDict1> selectDrugDict();
 
     List<DrugDict1> selectwowjoydrugdict();
+    List<OrderDict1> selectwowjoyorderdict();
 
     List<PubDict> selectwowjoypubdict();
 

@@ -16,9 +16,13 @@ spring:
   #  Jackson:
   #    default-property-inclusion: non_null  # 返回的结果是null的就排除
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/sis?serverTimezone=GMT%2B8
+#    url: jdbc:mysql://127.0.0.1:3306/sis?serverTimezone=GMT%2B8
+#    url: jdbc:mysql://172.16.0.6:3306/sis?serverTimezone=GMT%2B8
+    url: jdbc:mysql://127.0.0.1:3306/zjhz?serverTimezone=GMT%2B8
     username: root
     password: root123456
+#    username: emr
+#    password: Wowjoy@2018
     driver-class-name: com.mysql.cj.jdbc.Driver
   ##默认密码为空
   redis:

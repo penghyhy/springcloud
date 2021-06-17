@@ -147,6 +147,9 @@ public class PersonService {
     public void updatetwowjoydrugdict(Integer incrementId, String searchCode1) {
         personMapper.updatetwowjoydrugdict(incrementId, searchCode1);
     }
+    public void updatetwowjoyorderdict(Integer incrementId, String searchCode1) {
+        personMapper.updatetwowjoyorderdict(incrementId, searchCode1);
+    }
 
     public void updatetwowjoypubdict(Integer incrementId, String searchCode1) {
         personMapper.updatetwowjoypubdict(incrementId, searchCode1);
@@ -577,6 +580,14 @@ public class PersonService {
      */
     public List<DrugDict1> selectwowjoydrugdict() {
         return personMapper.selectwowjoydrugdict();
+    }
+    /**
+     * 查询sis服务中的诊疗信息表
+     *
+     * @return
+     */
+    public List<OrderDict1> selectwowjoyorderdict() {
+        return personMapper.selectwowjoyorderdict();
     }
     /**
      * 查询sis服务中的疾病信息表

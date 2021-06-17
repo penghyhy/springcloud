@@ -5,11 +5,36 @@ import cn.afterturn.easypoi.excel.entity.ImportParams;
 import com.penghy.server.bean.DrugDict;
 
 import java.io.File;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
 public class testab {
     public static void main(String[] args) {
+
+        for (int i=0;i<10;i++) {
+            System.out.println(i);
+            System.out.println("你好");
+            System.out.println(i);
+            System.out.println("你好2");
+        }
+
+        String ac = "ACCCC";
+        String a1 = (ac+"0000000000").substring(0,10);
+//        String a1 = "";
+        String  aaa = a1.split("~",-1)[1].split("\\|",-1)[4];
+
+
+
+        a1 = a1.substring(0,a1.indexOf("."));
+
+        String aaav = a1.split("\\|",-1)[1];
+
+        BigDecimal amout = new BigDecimal("14.63");
+        BigDecimal price = new BigDecimal("102.42");
+
+        BigDecimal dd = amout.divide(price,10,BigDecimal.ROUND_CEILING).setScale(4,BigDecimal.ROUND_HALF_UP);
+
 
 
         long start = System.currentTimeMillis();

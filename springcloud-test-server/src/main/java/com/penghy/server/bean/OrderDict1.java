@@ -4,9 +4,19 @@ public class OrderDict1 {
 
     private static final long serialVersionUID = 1L;
 
+    private int incrementId;
+
     private String insureOrderCode;
 
     private String orderChineseName;
+
+    public int getIncrementId() {
+        return incrementId;
+    }
+
+    public void setIncrementId(int incrementId) {
+        this.incrementId = incrementId;
+    }
 
     /**
      * 大类
