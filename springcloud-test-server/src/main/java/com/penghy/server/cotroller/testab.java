@@ -2,17 +2,82 @@ package com.penghy.server.cotroller;
 
 import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
+import com.ctc.wstx.util.StringUtil;
 import com.penghy.server.bean.DrugDict;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class testab {
     public static void main(String[] args) {
 
-        for (int i=0;i<10;i++) {
+        String buffer = "1|1.1|1.2|1.3|1.4|1.5|1.6|$2|2.1|2.2|2.3|2.4|2.5|2.6|$3|3.1|3.2|3.3|3.4|3.5|3.6|$";
+        String[] buff = buffer.split("\\$", -1);
+        List<Map<String, Object>> returnList = new ArrayList<>();
+        String chargeStr = "";
+        for (int i = 0; i < buff.length; i++) {
+            Map<String, Object> map = new HashMap<>();
+            chargeStr = buff[i];
+            if (StringUtils.isBlank(chargeStr) || "$".equals(chargeStr)) {
+                break;
+            }
+            String[] charg = chargeStr.split("\\|", -1);
+            map.put("field0", charg[0]);
+            map.put("field1", charg[1]);
+            map.put("field2", charg[2]);
+            map.put("field3", charg[3]);
+            map.put("field4", charg[4]);
+            map.put("field5", charg[5]);
+            returnList.add(map);
+        }
+
+        List<Map<String,Object>> list2 = new ArrayList<>();
+        Map<String,Object> map2 = new HashMap<>();
+        map2.put("field1","1");
+        map2.put("field22","1.11");
+        map2.put("field23","1.21");
+        Map<String,Object> map3 = new HashMap<>();
+        map3.put("field1","2");
+        map3.put("field22","2.11");
+        map3.put("field23","2.21");
+        Map<String,Object> map4 = new HashMap<>();
+        map4.put("field1","3");
+        map4.put("field22","3.11");
+        map4.put("field23","3.21");
+        Map<String,Object> map5 = new HashMap<>();
+        map5.put("field1","4");
+        map5.put("field22","4.11");
+        map5.put("field23","4.21");
+        list2.add(map2);
+        list2.add(map3);
+        list2.add(map4);
+        list2.add(map5);
+
+
+//        List<Map<String,Object>> returnList2 = returnList.stream().map(map->list2.stream().filter(m-> Objects.equals(m.get("field0"),map.get("field21"))).
+//                findFirst().map( m->{
+//                    map.putAll(m);
+//                    return map;
+//                }).orElse(null)).filter(Objects::nonNull).collect(Collectors.toList());
+
+
+        List<Map<String, Object>> resultList2 = list2.stream().map(m->{
+            m.put("grade",0);
+            returnList.stream().filter(m2->Objects.equals(m.get("field1"), m2.get("field0"))).forEach(s-> m.putAll(s));
+            return m;
+        }).collect(Collectors.toList());
+        resultList2.stream().forEach(s-> System.out.println(s));
+
+        System.out.println(resultList2);
+
+        String cc = "111##22";
+        if (!cc.contains("##")) {
+            System.out.println(1);
+        }
+        for (int i = 0; i < 10; i++) {
             System.out.println(i);
             System.out.println("你好");
             System.out.println(i);
@@ -20,21 +85,19 @@ public class testab {
         }
 
         String ac = "ACCCC";
-        String a1 = (ac+"0000000000").substring(0,10);
+        String a1 = (ac + "0000000000").substring(0, 10);
 //        String a1 = "";
-        String  aaa = a1.split("~",-1)[1].split("\\|",-1)[4];
+        String aaa = a1.split("~", -1)[1].split("\\|", -1)[4];
 
 
+        a1 = a1.substring(0, a1.indexOf("."));
 
-        a1 = a1.substring(0,a1.indexOf("."));
-
-        String aaav = a1.split("\\|",-1)[1];
+        String aaav = a1.split("\\|", -1)[1];
 
         BigDecimal amout = new BigDecimal("14.63");
         BigDecimal price = new BigDecimal("102.42");
 
-        BigDecimal dd = amout.divide(price,10,BigDecimal.ROUND_CEILING).setScale(4,BigDecimal.ROUND_HALF_UP);
-
+        BigDecimal dd = amout.divide(price, 10, BigDecimal.ROUND_CEILING).setScale(4, BigDecimal.ROUND_HALF_UP);
 
 
         long start = System.currentTimeMillis();

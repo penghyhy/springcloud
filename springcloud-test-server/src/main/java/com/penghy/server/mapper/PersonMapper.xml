@@ -327,7 +327,7 @@
     <select id="selectwowjoyorderdict" resultType="com.penghy.server.bean.OrderDict1"
             parameterType="com.penghy.server.bean.DrugDict1">
         select t.increment_id incrementId,t.insure_order_code insureOrderCode,t.order_Chinese_name orderChineseName,t.* FROM
-            si_order_dict_copy2 t where delete_flag=0
+            si_order_dict_cl t where delete_flag=0
     </select>
     <select id="selectwowjoypubdict" resultType="com.penghy.server.bean.PubDict"
             parameterType="com.penghy.server.bean.PubDict">

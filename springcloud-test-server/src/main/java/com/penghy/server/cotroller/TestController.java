@@ -44,7 +44,7 @@ public class TestController {
 //        List<Disease1> cc = dd;
     }
     /**
-     * 查询sis服务中的药品信息
+     * 查询sis服务中的诊疗信息
      *
      * @throws Exception
      */
