@@ -24,7 +24,7 @@ public interface PersonMapper {
     void update(@Param("incrementId") int incrementId, @Param("searchCode1") String searchCode1);
 
 
-    @Update("update si_drug_dict set search_code1 = #{searchCode1} where increment_id = #{incrementId}")
+    @Update("update si_drug_dict_copy1 set search_code1 = #{searchCode1} where increment_id = #{incrementId}")
     void updatetwowjoydrugdict(@Param("incrementId") int incrementId, @Param("searchCode1") String searchCode1);
 
 
