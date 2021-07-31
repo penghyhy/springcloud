@@ -57,6 +57,8 @@ public class TestController {
         }
 //        List<Disease1> cc = dd;
     }
+
+
     /**
      * 查询sis服务中的通用项目信息
      *
