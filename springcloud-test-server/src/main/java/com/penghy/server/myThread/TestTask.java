@@ -16,6 +16,7 @@ import java.util.Map;
  * @date 2021-08-21
  */
 public class TestTask {
+    // 入口
     public static void main(String[] args) {
         // 需要多线程处理的大量数据list
         List<TaskDataBean> data = new ArrayList<TaskDataBean>(100000);
