@@ -14,6 +14,14 @@ import java.util.stream.Collectors;
 public class testab {
     public static void main(String[] args) {
 
+        try {
+            Integer a = Integer.valueOf("");
+
+        } catch (Exception e) {
+
+
+        }
+
         String buffer = "1|1.1|1.2|1.3|1.4|1.5|1.6|$2|2.1|2.2|2.3|2.4|2.5|2.6|$3|3.1|3.2|3.3|3.4|3.5|3.6|$";
         String[] buff = buffer.split("\\$", -1);
         List<Map<String, Object>> returnList = new ArrayList<>();
