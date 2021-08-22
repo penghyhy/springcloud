@@ -39,6 +39,6 @@ public class TestTask {
         TaskDataBean resultBean = threadUtils.execute(data, params, task);
 //        System.out.println(JSONArray.toJSON(resultBean).toString());
     }
-
+ //  111111
 
 }
