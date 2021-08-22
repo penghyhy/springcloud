@@ -1,6 +1,5 @@
 package com.penghy.server.myThread;
 
-import com.alibaba.fastjson.JSONArray;
 import com.penghy.server.bean.TaskDataBean;
 
 import java.util.ArrayList;
