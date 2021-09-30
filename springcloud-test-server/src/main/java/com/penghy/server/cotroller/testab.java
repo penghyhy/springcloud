@@ -2,6 +2,7 @@ package com.penghy.server.cotroller;
 
 import cn.afterturn.easypoi.excel.ExcelImportUtil;
 import cn.afterturn.easypoi.excel.entity.ImportParams;
+import com.alibaba.fastjson.JSONArray;
 import com.ctc.wstx.util.StringUtil;
 import com.penghy.server.bean.DrugDict;
 import org.apache.commons.lang.StringUtils;
@@ -13,6 +14,47 @@ import java.util.stream.Collectors;
 
 public class testab {
     public static void main(String[] args) {
+
+
+        BigDecimal aaaaaaa = new BigDecimal("-100");
+        BigDecimal aac = new BigDecimal("1").multiply(aaaaaaa.abs());
+
+        Testdelete t = new Testdelete();
+
+        Map<String,Object> transInfo = new HashMap<>();
+        Map<String,Object> inputdata = new HashMap<>();
+        Map<String,Object> initdata = new HashMap<>();
+
+        initdata.put("i","i");
+        initdata.put("ii","ii");
+        initdata.put("iii","iii");
+        initdata.put("iiii","iiii");
+        initdata.put("iiiii","iiiii");
+        System.out.println(JSONArray.toJSON(initdata).toString());
+
+        inputdata.put("data",initdata);
+        System.out.println(JSONArray.toJSON(inputdata).toString());
+
+
+        transInfo.put("inpudata",inputdata);
+        System.out.println(JSONArray.toJSON(transInfo).toString());
+        System.out.println(JSONArray.toJSON(transInfo.get("inpudata")).toString());
+
+
+
+        List<Map<String,Object>> lists = new ArrayList<>();
+        for (int i=0;i<10;i++) {
+            Map<String,Object> map = new HashMap<>();
+            map.put("i",i);
+            map.put("ii",i+"i");
+            lists.add(map);
+        }
+        lists.forEach(m->{
+            m.put("iii",m.get("i"));
+            m.put("iiii",m.get("ii"));
+        });
+
+        System.out.println(lists);
 
         try {
             Integer a = Integer.valueOf("");
