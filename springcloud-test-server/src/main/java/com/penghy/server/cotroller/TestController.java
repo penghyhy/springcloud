@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,6 +44,7 @@ public class TestController {
         }
 //        List<Disease1> cc = dd;
     }
+
     /**
      * 查询sis服务中的诊疗信息
      *
@@ -67,10 +69,23 @@ public class TestController {
     @RequestMapping("/selectwowjoypubdict")
     public void selectwowjoypubdict() throws Exception {
         List<PubDict> dd = personService.selectwowjoypubdict();
-        RedisUtil.setNoExpiry("list:aaa:bbb",(Serializable)dd);
+//        RedisUtil.setNoExpiry("list:aaa:bbb", (Serializable) dd);
         for (PubDict pubDict : dd) {
             String get = Pinyin4jUtil.getPinYin(pubDict.getInsureDictName());
             personService.updatetwowjoypubdict(pubDict.getIncrementId(), get);
+        }
+    }
+    /**
+     * 查询sis服务中的通用项目信息
+     *
+     * @throws Exception
+     */
+    @RequestMapping("/selectwowjoyOtherdict")
+    public void selectwowjoyOtherdict() throws Exception {
+        List<Map<String,Object>> dd = personService.selectwowjoyOtherdict();
+        for (Map<String,Object> pubDict : dd) {
+            String get = Pinyin4jUtil.getPinYin(pubDict.get("disease_Chinese_name").toString());
+            personService.updatewowjoyOtherdict(Integer.valueOf(pubDict.get("increment_id").toString()), get);
         }
     }
 
@@ -246,6 +261,60 @@ public class TestController {
 //    }
 
     /**
+     * 查询sis服务中的通用项目信息
+     *
+     * @throws Exception
+     */
+    @RequestMapping("/selectwowjoytest")
+    public void selectwowjoytest() throws Exception {
+        List<String> dd = personService.selecttest();
+        BigDecimal a3 = BigDecimal.ZERO;
+        BigDecimal a4 = BigDecimal.ZERO;
+        BigDecimal a5 = BigDecimal.ZERO;
+        BigDecimal a6 = BigDecimal.ZERO;
+        BigDecimal a7 = BigDecimal.ZERO;
+        BigDecimal a8 = BigDecimal.ZERO;
+        BigDecimal a9 = BigDecimal.ZERO;
+        BigDecimal a10 = BigDecimal.ZERO;
+        BigDecimal a11 = BigDecimal.ZERO;
+        BigDecimal a12 = BigDecimal.ZERO;
+        BigDecimal a13 = BigDecimal.ZERO;
+        BigDecimal a14 = BigDecimal.ZERO;
+        BigDecimal a15 = BigDecimal.ZERO;
+        BigDecimal a16 = BigDecimal.ZERO;
+        BigDecimal a17 = BigDecimal.ZERO;
+        BigDecimal a18 = BigDecimal.ZERO;
+        //            JSONObject aao = JSON.parseObject(aa_);
+//            JSONObject aaoo = JSONObject.parseObject(aao.get("output").toString());
+//            Map<String, Object>  aaooo = ((List<Map<String, Object>>)aaoo.get("result")).get(0);
+        for (String aa : dd) {
+            String aa_ = aa.split("----")[0];
+            JSONObject aao_ = JSON.parseObject(aa_);
+            JSONObject aaoo = JSONObject.parseObject(aao_.get("output").toString());
+            Map<String, Object>  aaooo = ((List<Map<String, Object>>)aaoo.get("result")).get(0);
+            a3 = a3.add(new BigDecimal(aaooo.get("fulamt_ownpay_amt").toString()));
+            a4 = a4.add(new BigDecimal(aaooo.get("overlmt_amt").toString()));
+            a5 = a5.add(new BigDecimal(aaooo.get("preselfpay_amt").toString()));
+//            a6 = a6.add(new BigDecimal(aa.split("\\|", -1)[5]));
+//            a7 = a7.add(new BigDecimal(aa.split("\\|", -1)[6]));
+//            a8 = a8.add(new BigDecimal(aa.split("\\|", -1)[7]));
+//            a9 = a9.add(new BigDecimal(aa.split("\\|", -1)[8]));
+//            a10 = a10.add(new BigDecimal(aa.split("\\|", -1)[9]));
+//            a11 = a11.add(new BigDecimal(aa.split("\\|", -1)[10]));
+//            a12 = a12.add(new BigDecimal(aa.split("\\|", -1)[11]));
+//            a13 = a13.add(new BigDecimal(aa.split("\\|", -1)[12]));
+//            a14 = a14.add(new BigDecimal(aa.split("\\|", -1)[13]));
+//            a15 = a15.add(new BigDecimal(aa.split("\\|", -1)[14]));
+//            a16 = a16.add(new BigDecimal(aa.split("\\|", -1)[15]));
+//            a17 = a17.add(new BigDecimal(aa.split("\\|", -1)[16]));
+//            a18 = a18.add(new BigDecimal(aa.split("\\|", -1)[17]));
+        }
+        System.out.println("费用总额:"+a3+"，自费总额（非医保）:"+a4+"自理总额（目录内自负比例部分）:"+a5+"个人现金支付:"+a6+"报销金额~"+a7+"统筹基金支付~"+a8+"往年帐户支付~"+a9+"当年帐户支付~"+a10+"大病救助支付~"+a11+"公务员补助支付~"+
+                a12+"二乙基金支付~"+a13+"离休基金支付~"+a14+"劳模基金支付~"+a15+"补助基金支付~"+a16+"民政补助（伤残基金）支付~"+a17+"家庭共济基金~"+a18);
+
+    }
+
+    /**
      * 导入
      *
      * @param
@@ -263,4 +332,6 @@ public class TestController {
 //            e.printStackTrace();
 //        }
     }
+
+
 }

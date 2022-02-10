@@ -16,9 +16,9 @@ spring:
   #  Jackson:
   #    default-property-inclusion: non_null  # 返回的结果是null的就排除
   datasource:
+    url: jdbc:mysql://127.0.0.1:3306/penghy?serverTimezone=GMT%2B8
+#    url: jdbc:mysql://172.16.255.31:31389/sis?serverTimezone=GMT%2B8
 #    url: jdbc:mysql://127.0.0.1:3306/sis?serverTimezone=GMT%2B8
-#    url: jdbc:mysql://172.16.0.6:3306/sis?serverTimezone=GMT%2B8
-    url: jdbc:mysql://127.0.0.1:3306/zjhuz?serverTimezone=GMT%2B8
     username: root
     password: root123456
 #    username: emr

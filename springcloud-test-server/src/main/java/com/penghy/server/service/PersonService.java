@@ -154,6 +154,9 @@ public class PersonService {
     public void updatetwowjoypubdict(Integer incrementId, String searchCode1) {
         personMapper.updatetwowjoypubdict(incrementId, searchCode1);
     }
+    public void updatewowjoyOtherdict(Integer incrementId, String searchCode1) {
+        personMapper.updatewowjoyOtherdict(incrementId, searchCode1);
+    }
 
     public void insertDrugDict() {
         List<ItemDict> itemDicts = drugDictTempMapper.queryDrugDictTempList(new ItemDict());
@@ -597,6 +600,24 @@ public class PersonService {
     public List<PubDict> selectwowjoypubdict() {
         return personMapper.selectwowjoypubdict();
     }
+
+    /**
+     * 查询sis服务中的疾病信息表
+     *
+     * @return
+     */
+    public List<Map<String,Object>> selectwowjoyOtherdict() {
+        return personMapper.selectwowjoyOtherdict();
+    }
+
+
+
+    public List<String> selecttest() {
+        return personMapper.selecttest();
+    }
+
+
+
 
 
     public String impxlsx(String excelFile) {

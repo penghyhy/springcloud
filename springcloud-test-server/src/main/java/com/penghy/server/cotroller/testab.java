@@ -7,51 +7,142 @@ import com.ctc.wstx.util.StringUtil;
 import com.penghy.server.bean.DrugDict;
 import org.apache.commons.lang.StringUtils;
 
-import java.io.File;
+import java.io.*;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
 public class testab {
-    public static void main(String[] args) {
+    public static byte[] File2byte(File tradeFile) {
+        byte[] buffer = null;
+        try {
+            FileInputStream fis = new FileInputStream(tradeFile);
+            ByteArrayOutputStream bos = new ByteArrayOutputStream();
+            byte[] b = new byte[1024];
+            int n;
+            while ((n = fis.read(b)) != -1) {
+                bos.write(b, 0, n);
+            }
+            fis.close();
+            bos.close();
+            buffer = bos.toByteArray();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return buffer;
+    }
 
+    public static void main(String[] args) throws Exception {
+
+        try {
+            File filePath = new File("D:\\wowjoy\\医保接口文档\\衢州医保\\衢州新医保\\衢州人员备案.rar");
+            byte[] bytes = File2byte(filePath);
+            System.out.println(bytes);
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+
+        String a1108 = "35455.7|0.00|10316.06|3189.63|0.00|0.00|21950.01|9362.01|1250.22|1211.36|0|0|3000.00|20632.11|0|0|0|0|23632.11|3000.00|1|0|0|0|0|";
+
+
+        FileInputStream af = new FileInputStream("");
+        FileInputStream fis = null;
+        try {
+            fis = new FileInputStream("d:/a.txt"); // 内容是：abc
+            StringBuilder sb = new StringBuilder();
+            int temp = 0;
+            //当temp等于-1时，表示已经到了文件结尾，停止读取
+            while ((temp = fis.read()) != -1) {
+                sb.append((char) temp);
+            }
+            System.out.println(sb);
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                //这种写法，保证了即使遇到异常情况，也会关闭流对象。
+                if (fis != null) {
+                    fis.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        System.out.println(a1108.split("\\|", -1).length);
+
+        String acccccc = "000011111111";
+        acccccc = acccccc.substring(acccccc.length() - 4, acccccc.length());
+
+
+        String ea = "1 |1|A|1.0|2|B|2.0|3|C|3.0|4|";
+        ea = ea.substring(ea.indexOf("|") + 1, ea.length());
+        String dfadf[] = ea.split("\\|", -1);
+        int c = ea.split("\\|", -1).length % 3;
+        int ccc = ea.split("\\|", -1).length / 3;
+        List<Map<String, Object>> malist = new ArrayList<>();
+        for (int i = 0; i < ccc; i++) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("aa", dfadf[i * 3]);
+            map.put("aab", dfadf[i * 3 + 1]);
+            map.put("aac", dfadf[i * 3 + 2]);
+            malist.add(map);
+        }
+        System.out.println(JSONArray.toJSON(malist).toString());
+        try {
+            try {
+                int i = 1 / 0;
+            } catch (Exception e) {
+                throw new Exception(e.getMessage() + "aaa");
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+
+            throw new Exception(e + "," + e.getStackTrace()[0].getMethodName() + "," + e.getStackTrace()[0].getLineNumber() + "," + e.getMessage() + "bbbb");
+        }
+
+        String ta = "111111";
+        String[] ccd = ta.split("/");
 
         BigDecimal aaaaaaa = new BigDecimal("-100");
         BigDecimal aac = new BigDecimal("1").multiply(aaaaaaa.abs());
 
         Testdelete t = new Testdelete();
 
-        Map<String,Object> transInfo = new HashMap<>();
-        Map<String,Object> inputdata = new HashMap<>();
-        Map<String,Object> initdata = new HashMap<>();
+        Map<String, Object> transInfo = new HashMap<>();
+        Map<String, Object> inputdata = new HashMap<>();
+        Map<String, Object> initdata = new HashMap<>();
 
-        initdata.put("i","i");
-        initdata.put("ii","ii");
-        initdata.put("iii","iii");
-        initdata.put("iiii","iiii");
-        initdata.put("iiiii","iiiii");
+        initdata.put("i", "i");
+        initdata.put("ii", "ii");
+        initdata.put("iii", "iii");
+        initdata.put("iiii", "iiii");
+        initdata.put("iiiii", "iiiii");
         System.out.println(JSONArray.toJSON(initdata).toString());
 
-        inputdata.put("data",initdata);
+        inputdata.put("data", initdata);
         System.out.println(JSONArray.toJSON(inputdata).toString());
 
 
-        transInfo.put("inpudata",inputdata);
+        transInfo.put("inpudata", inputdata);
         System.out.println(JSONArray.toJSON(transInfo).toString());
         System.out.println(JSONArray.toJSON(transInfo.get("inpudata")).toString());
 
 
-
-        List<Map<String,Object>> lists = new ArrayList<>();
-        for (int i=0;i<10;i++) {
-            Map<String,Object> map = new HashMap<>();
-            map.put("i",i);
-            map.put("ii",i+"i");
+        List<Map<String, Object>> lists = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Map<String, Object> map = new HashMap<>();
+            map.put("i", i);
+            map.put("ii", i + "i");
             lists.add(map);
         }
-        lists.forEach(m->{
-            m.put("iii",m.get("i"));
-            m.put("iiii",m.get("ii"));
+        lists.forEach(m -> {
+            m.put("iii", m.get("i"));
+            m.put("iiii", m.get("ii"));
         });
 
         System.out.println(lists);
@@ -84,23 +175,23 @@ public class testab {
             returnList.add(map);
         }
 
-        List<Map<String,Object>> list2 = new ArrayList<>();
-        Map<String,Object> map2 = new HashMap<>();
-        map2.put("field1","1");
-        map2.put("field22","1.11");
-        map2.put("field23","1.21");
-        Map<String,Object> map3 = new HashMap<>();
-        map3.put("field1","2");
-        map3.put("field22","2.11");
-        map3.put("field23","2.21");
-        Map<String,Object> map4 = new HashMap<>();
-        map4.put("field1","3");
-        map4.put("field22","3.11");
-        map4.put("field23","3.21");
-        Map<String,Object> map5 = new HashMap<>();
-        map5.put("field1","4");
-        map5.put("field22","4.11");
-        map5.put("field23","4.21");
+        List<Map<String, Object>> list2 = new ArrayList<>();
+        Map<String, Object> map2 = new HashMap<>();
+        map2.put("field1", "1");
+        map2.put("field22", "1.11");
+        map2.put("field23", "1.21");
+        Map<String, Object> map3 = new HashMap<>();
+        map3.put("field1", "2");
+        map3.put("field22", "2.11");
+        map3.put("field23", "2.21");
+        Map<String, Object> map4 = new HashMap<>();
+        map4.put("field1", "3");
+        map4.put("field22", "3.11");
+        map4.put("field23", "3.21");
+        Map<String, Object> map5 = new HashMap<>();
+        map5.put("field1", "4");
+        map5.put("field22", "4.11");
+        map5.put("field23", "4.21");
         list2.add(map2);
         list2.add(map3);
         list2.add(map4);
@@ -114,12 +205,12 @@ public class testab {
 //                }).orElse(null)).filter(Objects::nonNull).collect(Collectors.toList());
 
 
-        List<Map<String, Object>> resultList2 = list2.stream().map(m->{
-            m.put("grade",0);
-            returnList.stream().filter(m2->Objects.equals(m.get("field1"), m2.get("field0"))).forEach(s-> m.putAll(s));
+        List<Map<String, Object>> resultList2 = list2.stream().map(m -> {
+            m.put("grade", 0);
+            returnList.stream().filter(m2 -> Objects.equals(m.get("field1"), m2.get("field0"))).forEach(s -> m.putAll(s));
             return m;
         }).collect(Collectors.toList());
-        resultList2.stream().forEach(s-> System.out.println(s));
+        resultList2.stream().forEach(s -> System.out.println(s));
 
         System.out.println(resultList2);
 
