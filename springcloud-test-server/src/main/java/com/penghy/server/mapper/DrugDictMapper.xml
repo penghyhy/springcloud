@@ -854,4 +854,20 @@
         </if>
         limit 1;
     </select>
+
+    <select id="queryBaeReckonList" parameterType="com.penghy.server.bean.sis.BaseReckon" resultType="com.penghy.server.bean.sis.BaseReckon">
+        select medi_insure_id mediInsureId,reckon_id reckonId,reckon_type reckonType,settle_type settleType,reckon_en reckonEn,reckon_cn reckonCn from si_base_reckon where medi_insure_id='4108' and patient_type=0 and settle_type=0 and delete_flag=0 order by orderby asc
+    </select>
+    <select id="queryPatiTradeList" parameterType="com.penghy.server.bean.sis.PatiTrade" resultType="com.penghy.server.bean.sis.PatiTrade">
+        select settle_record_id settleRecordId,insure_settle_info insureSettleInfo from si_pati_trade where medi_insure_id='4108' and settle_record_type=4 and delete_flag=0 and settle_record_id>0
+    </select>
+    <!-- 批量新增 -->
+    <insert id="insertPatiTradeBatch" parameterType="java.util.List">
+        INSERT INTO si_reckon
+        (settle_record_id,compute_class_id,compute_class_name,compute_class_en,compute_class_fees)
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+            (#{item.settleRecordId},#{item.computeClassId},#{item.computeClassName},#{item.computeClassEn},#{item.computeClassFees})
+        </foreach>
+    </insert>
 </mapper>

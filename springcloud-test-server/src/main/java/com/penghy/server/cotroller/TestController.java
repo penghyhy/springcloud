@@ -80,6 +80,15 @@ public class TestController {
      *
      * @throws Exception
      */
+    @RequestMapping("/queryBaeReckonList")
+    public void queryBaeReckonList() throws Exception {
+        personService.queryBaeReckonList();
+    }
+    /**
+     * 查询sis服务中的通用项目信息
+     *
+     * @throws Exception
+     */
     @RequestMapping("/selectwowjoyOtherdict")
     public void selectwowjoyOtherdict() throws Exception {
         List<Map<String,Object>> dd = personService.selectwowjoyOtherdict();

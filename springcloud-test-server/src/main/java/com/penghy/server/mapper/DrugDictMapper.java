@@ -1,6 +1,9 @@
 package com.penghy.server.mapper;
 
 import com.penghy.server.bean.DrugDict;
+import com.penghy.server.bean.sis.BaseReckon;
+import com.penghy.server.bean.sis.PatiTrade;
+import com.penghy.server.bean.sis.Reckon;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -114,4 +117,12 @@ public interface DrugDictMapper {
      * @return
      */
     Map<String, Object> getSiDrugDict(Map<String, Object> params);
+
+
+    List<BaseReckon> queryBaeReckonList();
+
+    List<PatiTrade> queryPatiTradeList();
+
+    void insertPatiTradeBatch(@Param("list")List<Reckon> reckonList);
+
 }

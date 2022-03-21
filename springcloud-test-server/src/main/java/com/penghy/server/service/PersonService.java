@@ -2,6 +2,9 @@ package com.penghy.server.service;
 
 import com.alibaba.fastjson.JSONArray;
 import com.penghy.server.bean.*;
+import com.penghy.server.bean.sis.BaseReckon;
+import com.penghy.server.bean.sis.PatiTrade;
+import com.penghy.server.bean.sis.Reckon;
 import com.penghy.server.mapper.DrugDictMapper;
 import com.penghy.server.mapper.DrugDictTempMapper;
 import com.penghy.server.mapper.PersonMapper;
@@ -147,6 +150,7 @@ public class PersonService {
     public void updatetwowjoydrugdict(Integer incrementId, String searchCode1) {
         personMapper.updatetwowjoydrugdict(incrementId, searchCode1);
     }
+
     public void updatetwowjoyorderdict(Integer incrementId, String searchCode1) {
         personMapper.updatetwowjoyorderdict(incrementId, searchCode1);
     }
@@ -154,6 +158,7 @@ public class PersonService {
     public void updatetwowjoypubdict(Integer incrementId, String searchCode1) {
         personMapper.updatetwowjoypubdict(incrementId, searchCode1);
     }
+
     public void updatewowjoyOtherdict(Integer incrementId, String searchCode1) {
         personMapper.updatewowjoyOtherdict(incrementId, searchCode1);
     }
@@ -584,6 +589,7 @@ public class PersonService {
     public List<DrugDict1> selectwowjoydrugdict() {
         return personMapper.selectwowjoydrugdict();
     }
+
     /**
      * 查询sis服务中的诊疗信息表
      *
@@ -592,6 +598,7 @@ public class PersonService {
     public List<OrderDict1> selectwowjoyorderdict() {
         return personMapper.selectwowjoyorderdict();
     }
+
     /**
      * 查询sis服务中的疾病信息表
      *
@@ -606,18 +613,14 @@ public class PersonService {
      *
      * @return
      */
-    public List<Map<String,Object>> selectwowjoyOtherdict() {
+    public List<Map<String, Object>> selectwowjoyOtherdict() {
         return personMapper.selectwowjoyOtherdict();
     }
-
 
 
     public List<String> selecttest() {
         return personMapper.selecttest();
     }
-
-
-
 
 
     public String impxlsx(String excelFile) {
@@ -773,6 +776,41 @@ public class PersonService {
         msg = "导入成功！";
         return msg;
     }
+
+    public void queryBaeReckonList() {
+        List<PatiTrade> patiTradeList = drugDictMapper.queryPatiTradeList();
+        List<BaseReckon> baseReckonList = drugDictMapper.queryBaeReckonList();
+        for (PatiTrade patiTrade : patiTradeList) {
+            int k = 0;
+            int i = 0;
+            List<Reckon> reckonList = new ArrayList<>();
+            String[] reckonFiles = patiTrade.getInsureSettleInfo().split("\\|", -1);
+            for (BaseReckon reckon : baseReckonList) {
+                if (reckon.getReckonType() != 1) {
+                    k++;
+                    i++;
+                    continue;
+                }
+                String rec = reckonFiles[i];
+                if (StringUtils.isBlank(rec)) {
+                    rec = "0";
+                }
+                System.out.println("下标为；"+i+",值为："+rec);
+                Reckon reckon1 = new Reckon();
+                reckon1.setComputeClassId(Integer.valueOf("4108" + reckon.getReckonId()));
+                reckon1.setComputeClassName(reckon.getReckonCn());
+                reckon1.setComputeClassEn(reckon.getReckonEn() + "4108");
+                reckon1.setComputeClassFees(new BigDecimal(rec));
+                reckon1.setSettleRecordId(patiTrade.getSettleRecordId());
+                reckonList.add(reckon1);
+                k++;
+                i++;
+            }
+            drugDictMapper.insertPatiTradeBatch(reckonList);
+        }
+    }
+
+
 }
 
 
