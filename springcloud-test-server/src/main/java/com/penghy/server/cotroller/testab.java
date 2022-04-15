@@ -5,9 +5,15 @@ import cn.afterturn.easypoi.excel.entity.ImportParams;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.ctc.wstx.util.StringUtil;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
+import com.penghy.server.bean.Disease;
 import com.penghy.server.bean.DrugDict;
 import org.apache.commons.collections4.MapUtils;
+import org.apache.commons.compress.utils.Lists;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.io.*;
 import java.math.BigDecimal;
@@ -37,14 +43,60 @@ public class testab {
     }
 
     public static void main(String[] args) throws Exception {
-        String aadfdg ="|||{{{";
-        if (!"{".equals(aadfdg.substring(0,1))){
+
+        List<Map<String,Object>> aa = Lists.newArrayList();
+        Map<String,Object> aa1 = Maps.newHashMap();
+        Map<String,Object> aa2 = Maps.newHashMap();
+        Map<String,Object> aa3 = Maps.newHashMap();
+        Map<String,Object> aa4 = Maps.newHashMap();
+        aa1.put("cum_type_code","111");
+        aa1.put("cum","1");
+        aa2.put("cum_type_code","12");
+        aa2.put("cum","2");
+        aa3.put("cum_type_code","111");
+        aa3.put("cum","4");
+        aa4.put("cum_type_code","111");
+        aa4.put("cum","5");
+        aa.add(aa1);
+        aa.add(aa2);
+        aa.add(aa3);
+        aa.add(aa4);
+
+        Map<String, BigDecimal> collect2= aa.stream().collect(Collectors.groupingBy(x->x.get("cum_type_code").toString(),
+                Collectors.reducing(BigDecimal.ZERO,
+                        t->new BigDecimal(t.get("cum").toString()), BigDecimal::add)));
+
+        System.out.println(collect2);
+
+
+
+        List<Map<String,Object>> mapList = Lists.newArrayList();
+        aa.stream().collect(Collectors.groupingBy(r-> r.get("cum_type_code"))).forEach((code, list) -> {
+            Map<String,Object> bb = Maps.newHashMap();
+            list.stream().forEach(r -> {
+                if (bb.isEmpty()) {
+                    bb.putAll(r);
+                } else {
+                    bb.put("cum", new BigDecimal(bb.get("cum").toString()).add(new BigDecimal(r.get("cum").toString())));
+                }
+            });
+            mapList.add(bb);
+        });
+
+        System.out.println(mapList);
+
+
+
+
+        Disease disease = new Disease();
+        String aadfdg = "|||{{{";
+        if (!"{".equals(aadfdg.substring(0, 1))) {
             System.out.println("true");
         }
 
         BigDecimal acccc = BigDecimal.ZERO.setScale(2);
         BigDecimal bcccc = BigDecimal.ZERO;
-        String jsonmap = "";
+        String jsonmap = "{prm_yka056=0, prm_yka057=0, prm_yka054=6, prm_yka055=3818.85, prm_ake173=0, prm_yka058=0, prm_ykd524=0, prm_ykd523=0, prm_aae001=2022, prm_zhkzf=, prm_yka090=0, prm_ake181=760.0, prm_yae366=202203, prm_yka122=0, prm_yka089=, prm_yka087=0, prm_yka120=, prm_yka088=0, prm_yka085=0, prm_yka086=0, prm_yka083=0, prm_ake183=, prm_yka084=0, prm_akc087=0, prm_yka525=3800.0, prm_yka368=0, prm_yka248=3040.0, prm_aab004=黄道侗族乡白屋场村委会, prm_aae036=2022-03-03 08:43:02, prm_aab001=, prm_yab139=520603, prm_yka082=, prm_yka111=3800.0, prm_akc090=, prm_ykc299=, prm_ykc296=15, prm_zhyjyjj=0, prm_yka194=, prm_ake032=0, prm_yka316=99971, psn_cash_pay=0.0, prm_aac004=1, prm_aac003=罗名兴, prm_aac006=1950-07-17, prm_aac002=522230195007170770, prm_aac001=52000006000000006019796001, prm_yke030=0, prm_yka065=0, prm_ykd135=, prm_yke025=0, prm_yka385=, prm_ykc120=0, prm_yka062=0, prm_akc021=, prm_yka900=0, prm_akc190_new=, hosp_part_amt=18.85, prm_yka027=, prm_yka028=0, prm_yka501=, prm_ykb037=520603, prm_akc023=, prm_yka103=520600G0000125567512, prm_yka345=, prm_ykc281=, prm_ykc280=}\n";
         jsonmap = jsonmap.replaceAll(" ", "");
         jsonmap = jsonmap.replaceAll("\\{", "{\"");
         jsonmap = jsonmap.replaceAll("\\{", "{\"");
@@ -58,113 +110,106 @@ public class testab {
         jsonmap = jsonmap.replaceAll("}]\"}", "}]}");
 
         JSONObject jsonObject = JSONObject.parseObject(jsonmap);
+//        String rowlist = MapUtils.getString(jsonObject, "sqldata");
+//        List<Map<String, Object>> resultList = Lists.newArrayList();
+//
+//        if (StringUtils.isNotBlank(rowlist)) {
+//            JSONObject jsonObject1 = JSONObject.parseObject(rowlist);
+//            try {
+//                resultList = (List<Map<String, Object>>) jsonObject1.get("row");
+//            } catch (Exception e) {
+//                resultList.add((Map<String, Object>) jsonObject1.get("row"));
+//            }
+//        }
+
         System.out.println(jsonObject);
 
 
-
-
         // 单位编号
-        String prm_aab001 =  MapUtils.getString(jsonObject,"prm_aab001");
+        String prm_aab001 = MapUtils.getString(jsonObject, "prm_aab001");
         // 单位名称
-        String prm_aab004 =  MapUtils.getString(jsonObject,"prm_aab004");
+        String prm_aab004 = MapUtils.getString(jsonObject, "prm_aab004");
         // 个人编号
-        String prm_aac001 =  MapUtils.getString(jsonObject,"prm_aac001");
+        String prm_aac001 = MapUtils.getString(jsonObject, "prm_aac001");
         // 公民身份号码
-        String prm_aac002 =  MapUtils.getString(jsonObject,"prm_aac002");
+        String prm_aac002 = MapUtils.getString(jsonObject, "prm_aac002");
         // 姓名
-        String prm_aac003 =  MapUtils.getString(jsonObject,"prm_aac003");
+        String prm_aac003 = MapUtils.getString(jsonObject, "prm_aac003");
         // 性别
-        String prm_aac004 =  MapUtils.getString(jsonObject,"prm_aac004");
+        String prm_aac004 = MapUtils.getString(jsonObject, "prm_aac004");
         // 出生日期
-        String prm_aac006 =  MapUtils.getString(jsonObject,"prm_aac006");
+        String prm_aac006 = MapUtils.getString(jsonObject, "prm_aac006");
         // 行政职务
-        String prm_aac020 =  MapUtils.getString(jsonObject,"prm_aac020");
+        String prm_aac020 = MapUtils.getString(jsonObject, "prm_aac020");
         //  个人参保状态
-        String prm_aac031 =  MapUtils.getString(jsonObject,"prm_aac031");
+        String prm_aac031 = MapUtils.getString(jsonObject, "prm_aac031");
         // 电话
-        String prm_aae005 =  MapUtils.getString(jsonObject,"prm_aae005");
+        String prm_aae005 = MapUtils.getString(jsonObject, "prm_aae005");
         // 地址
-        String prm_aae006 =  MapUtils.getString(jsonObject,"prm_aae006");
+        String prm_aae006 = MapUtils.getString(jsonObject, "prm_aae006");
         // 医疗人员类别
-        String prm_akc021 =  MapUtils.getString(jsonObject,"prm_akc021");
+        String prm_akc021 = MapUtils.getString(jsonObject, "prm_akc021");
         // 实足年龄
-        String prm_akc023 =  MapUtils.getString(jsonObject,"prm_akc023");
+        String prm_akc023 = MapUtils.getString(jsonObject, "prm_akc023");
         // 个人账户余额
-        String prm_akc087 =  MapUtils.getString(jsonObject,"prm_akc087");
+        String prm_akc087 = MapUtils.getString(jsonObject, "prm_akc087");
         // 02-电子社保卡（医保付款码）；03-医保电子凭证;医保电子凭证及电子社保卡时不为空
-        String prm_qrcodetype =  MapUtils.getString(jsonObject,"prm_qrcodetype");
+        String prm_qrcodetype = MapUtils.getString(jsonObject, "prm_qrcodetype");
         // 特殊病标识  限遵义统筹区：1 为 已申报慢特病，0 为 未申报慢特病
-        String prm_symbol =  MapUtils.getString(jsonObject,"prm_symbol");
+        String prm_symbol = MapUtils.getString(jsonObject, "prm_symbol");
         // 分中心编号
-        String prm_yab003 =  MapUtils.getString(jsonObject,"prm_yab003");
+        String prm_yab003 = MapUtils.getString(jsonObject, "prm_yab003");
         // 参保所属分中心
-        String prm_yab139 =  MapUtils.getString(jsonObject,"prm_yab139");
+        String prm_yab139 = MapUtils.getString(jsonObject, "prm_yab139");
         // 卡号
-        String prm_yac005 =  MapUtils.getString(jsonObject,"prm_yac005");
+        String prm_yac005 = MapUtils.getString(jsonObject, "prm_yac005");
         // 二维码
-        String prm_yae921 =  MapUtils.getString(jsonObject,"prm_yae921");
+        String prm_yae921 = MapUtils.getString(jsonObject, "prm_yae921");
         // 居民门诊统筹限额已累计金额
-        String prm_yka128 =  MapUtils.getString(jsonObject,"prm_yka128");
+        String prm_yka128 = MapUtils.getString(jsonObject, "prm_yka128");
         // 执行社会保险办法
-        String prm_ykb065 =  MapUtils.getString(jsonObject,"prm_ykb065");
+        String prm_ykb065 = MapUtils.getString(jsonObject, "prm_ykb065");
         // 特殊疾病信息
-        String prm_ykc010 =  MapUtils.getString(jsonObject,"prm_ykc010");
-        JSONObject jsonObject1 = JSONObject.parseObject(prm_ykc010);
-        List<Map<String,Object>> specialList = (List<Map<String,Object>>)jsonObject1.get("row");
-        //开始时间
-        String aae030 =  MapUtils.getString(jsonObject,"aae030");
-        // 结束时间
-        String aae031 =  MapUtils.getString(jsonObject,"aae031");
-        // 医院编码
-        String akb020 =  MapUtils.getString(jsonObject,"akb020");
-        // 分中心
-        String yab003 =  MapUtils.getString(jsonObject,"yab003");
-        // 疾病编码
-        String yka026 =  MapUtils.getString(jsonObject,"yka026");
-        // 病种名称
-        String yka027 =  MapUtils.getString(jsonObject,"yka027");
-        //补助标准
-        String yka068 =  MapUtils.getString(jsonObject,"yka068");
-        // 拼音助记码
-        String yka260 =  MapUtils.getString(jsonObject,"yka260");
-        // 病种标志编码
-        String ykd111 =  MapUtils.getString(jsonObject,"ykd111");
-        // 病种标志名称
-        String ykd112 =  MapUtils.getString(jsonObject,"ykd112");
+        String prm_ykc010 = MapUtils.getString(jsonObject, "prm_ykc010");
+//        JSONObject jsonObject1 = JSONObject.parseObject(prm_ykc010);
+//        List<Map<String,Object>> specialList = (List<Map<String,Object>>)jsonObject1.get("row");
+//        //开始时间
+//        String aae030 =  MapUtils.getString(jsonObject,"aae030");
+//        // 结束时间
+//        String aae031 =  MapUtils.getString(jsonObject,"aae031");
+//        // 医院编码
+//        String akb020 =  MapUtils.getString(jsonObject,"akb020");
+//        // 分中心
+//        String yab003 =  MapUtils.getString(jsonObject,"yab003");
+//        // 疾病编码
+//        String yka026 =  MapUtils.getString(jsonObject,"yka026");
+//        // 病种名称
+//        String yka027 =  MapUtils.getString(jsonObject,"yka027");
+//        //补助标准
+//        String yka068 =  MapUtils.getString(jsonObject,"yka068");
+//        // 拼音助记码
+//        String yka260 =  MapUtils.getString(jsonObject,"yka260");
+//        // 病种标志编码
+//        String ykd111 =  MapUtils.getString(jsonObject,"ykd111");
+//        // 病种标志名称
+//        String ykd112 =  MapUtils.getString(jsonObject,"ykd112");
 
         // 住院状态
-        String prm_ykc023 =  MapUtils.getString(jsonObject,"prm_ykc023");
+        String prm_ykc023 = MapUtils.getString(jsonObject, "prm_ykc023");
         // 是否待遇等待 期
-        String prm_ykc101 =  MapUtils.getString(jsonObject,"prm_ykc101");
+        String prm_ykc101 = MapUtils.getString(jsonObject, "prm_ykc101");
         // 公务员级别
-        String prm_ykc120 =  MapUtils.getString(jsonObject,"prm_ykc120");
+        String prm_ykc120 = MapUtils.getString(jsonObject, "prm_ykc120");
         // 异地安置标志
-        String prm_ykc150 =  MapUtils.getString(jsonObject,"prm_ykc150");
+        String prm_ykc150 = MapUtils.getString(jsonObject, "prm_ykc150");
         // 居 民医 疗 人 员 类别
-        String prm_ykc280 =  MapUtils.getString(jsonObject,"prm_ykc280");
+        String prm_ykc280 = MapUtils.getString(jsonObject, "prm_ykc280");
         // 居 民医 疗 人 员 身份
-        String prm_ykc281 =  MapUtils.getString(jsonObject,"prm_ykc281");
+        String prm_ykc281 = MapUtils.getString(jsonObject, "prm_ykc281");
         // 人员类别
-        String prm_ykc296 =  MapUtils.getString(jsonObject,"prm_ykc296");
+        String prm_ykc296 = MapUtils.getString(jsonObject, "prm_ykc296");
         // 业务类型
-        String prm_ykc305 =  MapUtils.getString(jsonObject,"prm_ykc305");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        String prm_ykc305 = MapUtils.getString(jsonObject, "prm_ykc305");
 
 
         try {
@@ -416,152 +461,146 @@ public class testab {
 //        bb.aa2();
 
 
-
-
-
-
-
-
-    private void settleInfo (Map<String,Object> jsonObject){
-        String JGCDJE =  MapUtils.getString(jsonObject,"JGCDJE");
-        String SFFYHJ =  MapUtils.getString(jsonObject,"SFFYHJ");
-        String businesssequence =  MapUtils.getString(jsonObject,"businesssequence");
-        String businessvalidate =  MapUtils.getString(jsonObject,"businessvalidate");
-        String hisAmount =  MapUtils.getString(jsonObject,"hisAmount");
+    private void settleInfo(Map<String, Object> jsonObject) {
+        String JGCDJE = MapUtils.getString(jsonObject, "JGCDJE");
+        String SFFYHJ = MapUtils.getString(jsonObject, "SFFYHJ");
+        String businesssequence = MapUtils.getString(jsonObject, "businesssequence");
+        String businessvalidate = MapUtils.getString(jsonObject, "businessvalidate");
+        String hisAmount = MapUtils.getString(jsonObject, "hisAmount");
         // 医院承担
-        String hosp_part_amt =  MapUtils.getString(jsonObject,"hosp_part_amt");
+        String hosp_part_amt = MapUtils.getString(jsonObject, "hosp_part_amt");
         // 单位编号
-        String prm_aab001 =  MapUtils.getString(jsonObject,"prm_aab001");
+        String prm_aab001 = MapUtils.getString(jsonObject, "prm_aab001");
         // 单位名称
-        String prm_aab004 =  MapUtils.getString(jsonObject,"prm_aab004");
+        String prm_aab004 = MapUtils.getString(jsonObject, "prm_aab004");
         // 个人编号
-        String prm_aac001 =  MapUtils.getString(jsonObject,"prm_aac001");
+        String prm_aac001 = MapUtils.getString(jsonObject, "prm_aac001");
         // 公民身份号码
-        String prm_aac002 =  MapUtils.getString(jsonObject,"prm_aac002");
+        String prm_aac002 = MapUtils.getString(jsonObject, "prm_aac002");
         // 姓名
-        String prm_aac003 =  MapUtils.getString(jsonObject,"prm_aac003");
+        String prm_aac003 = MapUtils.getString(jsonObject, "prm_aac003");
         // 性别
-        String prm_aac004 =  MapUtils.getString(jsonObject,"prm_aac004");
+        String prm_aac004 = MapUtils.getString(jsonObject, "prm_aac004");
         // 出生日期
-        String prm_aac006 =  MapUtils.getString(jsonObject,"prm_aac006");
+        String prm_aac006 = MapUtils.getString(jsonObject, "prm_aac006");
         // 年度
-        String prm_aae001 =  MapUtils.getString(jsonObject,"prm_aae001");
+        String prm_aae001 = MapUtils.getString(jsonObject, "prm_aae001");
         // 经办时间
-        String prm_aae036 =  MapUtils.getString(jsonObject,"prm_aae036");
+        String prm_aae036 = MapUtils.getString(jsonObject, "prm_aae036");
         // 支付类别
-        String prm_aka130 =  MapUtils.getString(jsonObject,"prm_aka130");
+        String prm_aka130 = MapUtils.getString(jsonObject, "prm_aka130");
         //  医疗人员类别
-        String prm_akc021 =  MapUtils.getString(jsonObject,"prm_akc021");
+        String prm_akc021 = MapUtils.getString(jsonObject, "prm_akc021");
         // 实足年龄
-        String prm_akc023 =  MapUtils.getString(jsonObject,"prm_akc023");
+        String prm_akc023 = MapUtils.getString(jsonObject, "prm_akc023");
         // 本次个人账户支付后帐户余额
-        String prm_akc087 =  MapUtils.getString(jsonObject,"prm_akc087");
+        String prm_akc087 = MapUtils.getString(jsonObject, "prm_akc087");
         // 本年真实住院次数
-        String prm_akc090 =  MapUtils.getString(jsonObject,"prm_akc090");
+        String prm_akc090 = MapUtils.getString(jsonObject, "prm_akc090");
         // 就诊编号
-        String prm_akc190 =  MapUtils.getString(jsonObject,"prm_akc190");
+        String prm_akc190 = MapUtils.getString(jsonObject, "prm_akc190");
         //  城乡居民卫计局补偿金额（卫计补偿）
-        String prm_ake032 =  MapUtils.getString(jsonObject,"prm_ake032");
+        String prm_ake032 = MapUtils.getString(jsonObject, "prm_ake032");
         // 其他基金支付
-        String prm_ake173 =  MapUtils.getString(jsonObject,"prm_ake173");
+        String prm_ake173 = MapUtils.getString(jsonObject, "prm_ake173");
         // 医疗救助补偿金额
-        String prm_ake181 =  MapUtils.getString(jsonObject,"prm_ake181");
+        String prm_ake181 = MapUtils.getString(jsonObject, "prm_ake181");
         // 优抚补偿金额
-        String prm_ake183 =  MapUtils.getString(jsonObject,"prm_ake183");
-        String prm_bzxj =  MapUtils.getString(jsonObject,"prm_bzxj");
-        String prm_sdxj =  MapUtils.getString(jsonObject,"prm_sdxj");
+        String prm_ake183 = MapUtils.getString(jsonObject, "prm_ake183");
+        String prm_bzxj = MapUtils.getString(jsonObject, "prm_bzxj");
+        String prm_sdxj = MapUtils.getString(jsonObject, "prm_sdxj");
         // 分中心编号
-        String prm_yab003 =  MapUtils.getString(jsonObject,"prm_yab003");
+        String prm_yab003 = MapUtils.getString(jsonObject, "prm_yab003");
         //  参保所属分中心
-        String prm_yab139 =  MapUtils.getString(jsonObject,"prm_yab139");
+        String prm_yab139 = MapUtils.getString(jsonObject, "prm_yab139");
         // 清算期号
-        String prm_yae366 =  MapUtils.getString(jsonObject,"prm_yae366");
+        String prm_yae366 = MapUtils.getString(jsonObject, "prm_yae366");
         // 单病种(结算)病种名称
-        String prm_yka027 =  MapUtils.getString(jsonObject,"prm_yka027");
+        String prm_yka027 = MapUtils.getString(jsonObject, "prm_yka027");
         // 单病种(结算)医疗机构自费费用
-        String prm_yka028 =  MapUtils.getString(jsonObject,"prm_yka028");
+        String prm_yka028 = MapUtils.getString(jsonObject, "prm_yka028");
         // 清算方式
-        String prm_yka054 =  MapUtils.getString(jsonObject,"prm_yka054");
+        String prm_yka054 = MapUtils.getString(jsonObject, "prm_yka054");
         // 费用总额
-        String prm_yka055 =  MapUtils.getString(jsonObject,"prm_yka055");
+        String prm_yka055 = MapUtils.getString(jsonObject, "prm_yka055");
         // 全自费金额
-        String prm_yka056 =  MapUtils.getString(jsonObject,"prm_yka056");
+        String prm_yka056 = MapUtils.getString(jsonObject, "prm_yka056");
         // 挂钩自付金额
-        String prm_yka057 =  MapUtils.getString(jsonObject,"prm_yka057");
+        String prm_yka057 = MapUtils.getString(jsonObject, "prm_yka057");
         //  进入起付线金额
-        String prm_yka058 =  MapUtils.getString(jsonObject,"prm_yka058");
+        String prm_yka058 = MapUtils.getString(jsonObject, "prm_yka058");
         // 大额医疗支付金额
-        String prm_yka062 =  MapUtils.getString(jsonObject,"prm_yka062");
+        String prm_yka062 = MapUtils.getString(jsonObject, "prm_yka062");
         // 个人账户支付部分
-        String prm_yka065 =  MapUtils.getString(jsonObject,"prm_yka065");
+        String prm_yka065 = MapUtils.getString(jsonObject, "prm_yka065");
         // 大额补充保险报销金额
-        String prm_yka082 =  MapUtils.getString(jsonObject,"prm_yka082");
+        String prm_yka082 = MapUtils.getString(jsonObject, "prm_yka082");
         // 大病额外报销金额
-        String prm_yka083 =  MapUtils.getString(jsonObject,"prm_yka083");
+        String prm_yka083 = MapUtils.getString(jsonObject, "prm_yka083");
         // 公务员额外报销金额
-        String prm_yka084 =  MapUtils.getString(jsonObject,"prm_yka084");
+        String prm_yka084 = MapUtils.getString(jsonObject, "prm_yka084");
         // 工会额外报销金额
-        String prm_yka085 =  MapUtils.getString(jsonObject,"prm_yka085");
+        String prm_yka085 = MapUtils.getString(jsonObject, "prm_yka085");
         // 进口自付金额
-        String prm_yka086 =  MapUtils.getString(jsonObject,"prm_yka086");
+        String prm_yka086 = MapUtils.getString(jsonObject, "prm_yka086");
         // 诊疗超标自付金额
-        String prm_yka087 =  MapUtils.getString(jsonObject,"prm_yka087");
+        String prm_yka087 = MapUtils.getString(jsonObject, "prm_yka087");
         // 床位超标自付金额
-        String prm_yka088 =  MapUtils.getString(jsonObject,"prm_yka088");
+        String prm_yka088 = MapUtils.getString(jsonObject, "prm_yka088");
         // 单病种(结算)编码
-        String prm_yka089 =  MapUtils.getString(jsonObject,"prm_yka089");
+        String prm_yka089 = MapUtils.getString(jsonObject, "prm_yka089");
         // 限价材料超标自付金额
-        String prm_yka090 =  MapUtils.getString(jsonObject,"prm_yka090");
+        String prm_yka090 = MapUtils.getString(jsonObject, "prm_yka090");
         // 结算编号
-        String prm_yka103 =  MapUtils.getString(jsonObject,"prm_yka103");
+        String prm_yka103 = MapUtils.getString(jsonObject, "prm_yka103");
         // 符合范围金额
-        String prm_yka111 =  MapUtils.getString(jsonObject,"prm_yka111");
+        String prm_yka111 = MapUtils.getString(jsonObject, "prm_yka111");
         // 已使用额度
-        String prm_yka119 =  MapUtils.getString(jsonObject,"prm_yka119");
+        String prm_yka119 = MapUtils.getString(jsonObject, "prm_yka119");
         // 基本统筹已累计金额
-        String prm_yka120 =  MapUtils.getString(jsonObject,"prm_yka120");
+        String prm_yka120 = MapUtils.getString(jsonObject, "prm_yka120");
         // 大额统筹已累计金额
-        String prm_yka122 =  MapUtils.getString(jsonObject,"prm_yka122");
+        String prm_yka122 = MapUtils.getString(jsonObject, "prm_yka122");
         // 超限额标志
-        String prm_yka194 =  MapUtils.getString(jsonObject,"prm_yka194");
+        String prm_yka194 = MapUtils.getString(jsonObject, "prm_yka194");
         // 基本医疗统筹支付金额
-        String prm_yka248 =  MapUtils.getString(jsonObject,"prm_yka248");
+        String prm_yka248 = MapUtils.getString(jsonObject, "prm_yka248");
         // 清算类别
-        String prm_yka316 =  MapUtils.getString(jsonObject,"prm_yka316");
+        String prm_yka316 = MapUtils.getString(jsonObject, "prm_yka316");
         // 单病种(结算)包干标准
-        String prm_yka345 =  MapUtils.getString(jsonObject,"prm_yka345");
+        String prm_yka345 = MapUtils.getString(jsonObject, "prm_yka345");
         // 公务员补助普通门诊起付年度累计(含慢性病)
-        String prm_yka368 =  MapUtils.getString(jsonObject,"prm_yka368");
+        String prm_yka368 = MapUtils.getString(jsonObject, "prm_yka368");
         // 门诊产前补助
-        String prm_yka501 =  MapUtils.getString(jsonObject,"prm_yka501");
+        String prm_yka501 = MapUtils.getString(jsonObject, "prm_yka501");
         // 医保结算费用总
-        String prm_yka525 =  MapUtils.getString(jsonObject,"prm_yka525");
+        String prm_yka525 = MapUtils.getString(jsonObject, "prm_yka525");
         // 规定病种起付线累计
-        String prm_yka900 =  MapUtils.getString(jsonObject,"prm_yka900");
+        String prm_yka900 = MapUtils.getString(jsonObject, "prm_yka900");
         // 慢性病门诊预设线累计
-        String prm_yka902 =  MapUtils.getString(jsonObject,"prm_yka902");
+        String prm_yka902 = MapUtils.getString(jsonObject, "prm_yka902");
         // 慢性病门诊补助年度累计
-        String prm_yka903 =  MapUtils.getString(jsonObject,"prm_yka903");
+        String prm_yka903 = MapUtils.getString(jsonObject, "prm_yka903");
         // 清算分中心
-        String prm_ykb037 =  MapUtils.getString(jsonObject,"prm_ykb037");
+        String prm_ykb037 = MapUtils.getString(jsonObject, "prm_ykb037");
         // 公务员级别
-        String prm_ykc120 =  MapUtils.getString(jsonObject,"prm_ykc120");
+        String prm_ykc120 = MapUtils.getString(jsonObject, "prm_ykc120");
         // 居民医疗人员类别
-        String prm_ykc280 =  MapUtils.getString(jsonObject,"prm_ykc280");
+        String prm_ykc280 = MapUtils.getString(jsonObject, "prm_ykc280");
         // 居民医疗人员身份
-        String prm_ykc281 =  MapUtils.getString(jsonObject,"prm_ykc281");
+        String prm_ykc281 = MapUtils.getString(jsonObject, "prm_ykc281");
         // 城乡居民人员类别，目前 仅限贵安，六盘水
-        String prm_ykc299 =  MapUtils.getString(jsonObject,"prm_ykc299");
+        String prm_ykc299 = MapUtils.getString(jsonObject, "prm_ykc299");
         // 重大疾病标识（1 为重大疾病）
-        String prm_ykd092 =  MapUtils.getString(jsonObject,"prm_ykd092");
+        String prm_ykd092 = MapUtils.getString(jsonObject, "prm_ykd092");
         // 本年公务员门诊补助累计额(含慢性病)
-        String prm_yke025 =  MapUtils.getString(jsonObject,"prm_yke025");
+        String prm_yke025 = MapUtils.getString(jsonObject, "prm_yke025");
         // 公务员补助报销金额
-        String prm_yke030 =  MapUtils.getString(jsonObject,"prm_yke030");
-        String prm_ysxj =  MapUtils.getString(jsonObject,"prm_ysxj");
+        String prm_yke030 = MapUtils.getString(jsonObject, "prm_yke030");
+        String prm_ysxj = MapUtils.getString(jsonObject, "prm_ysxj");
         // 本次现金支付
-        String psn_cash_pay =  MapUtils.getString(jsonObject,"psn_cash_pay");
-        String selfUnderFees =  MapUtils.getString(jsonObject,"selfUnderFees");
+        String psn_cash_pay = MapUtils.getString(jsonObject, "psn_cash_pay");
+        String selfUnderFees = MapUtils.getString(jsonObject, "selfUnderFees");
     }
 
 
