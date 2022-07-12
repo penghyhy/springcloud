@@ -297,7 +297,10 @@
     <!-- 查询所有 -->
     <select id="queryaaaaaList" resultType="com.penghy.server.bean.DrugDict1"
             parameterType="com.penghy.server.bean.DrugDict1">
-        select * from si_drug_dict_phy where search_code1 is null or search_code1=''
+        select *
+        from si_drug_dict_phy
+        where search_code1 is null
+           or search_code1 = ''
 
         -- SELECT
         -- *,
@@ -321,24 +324,43 @@
 
     <select id="selectwowjoydrugdict" resultType="com.penghy.server.bean.DrugDict1"
             parameterType="com.penghy.server.bean.DrugDict1">
-        select t.increment_id incrementId,t.insure_drug_code insureDrugCode,t.drug_Chinese_name drugChineseName,t.* FROM
-            si_drug_dict t
+        select t.increment_id incrementId, t.insure_drug_code insureDrugCode, t.drug_Chinese_name drugChineseName, t.*
+        FROM si_drug_dict t
     </select>
     <select id="selectwowjoyorderdict" resultType="com.penghy.server.bean.OrderDict1"
             parameterType="com.penghy.server.bean.DrugDict1">
-        select t.increment_id incrementId,t.insure_order_code insureOrderCode,t.order_Chinese_name orderChineseName,t.* FROM
-            si_order_dict t where delete_flag=0 and  search_code1 is null
+        select t.increment_id       incrementId,
+               t.insure_order_code  insureOrderCode,
+               t.order_Chinese_name orderChineseName,
+               t.*
+        FROM si_order_dict t
+        where delete_flag = 0
+          and search_code1 is null
+    </select>
+
+    <select id="selectwowjoyopearationdict" resultType="com.penghy.server.bean.Opeartion"
+            parameterType="com.penghy.server.bean.Opeartion">
+        select t.increment_id           incrementId,
+               t.insure_operation_code  insureOrderCode,
+               t.operation_Chinese_name operationChineseName,
+               t.*
+        FROM si_operation t
+        where delete_flag = 0
     </select>
     <select id="selectwowjoypubdict" resultType="com.penghy.server.bean.PubDict"
             parameterType="com.penghy.server.bean.PubDict">
-        select t.increment_id incrementId,t.insure_dict_name insureDictName,t.search_code1 searchCode1 from si_pub_dict t where t.search_code1 is null
+        select t.increment_id incrementId, t.insure_dict_name insureDictName, t.search_code1 searchCode1
+        from si_pub_dict t
+        where t.search_code1 is null
     </select>
 
     <!-- 查询所有 -->
     <select id="selectDrugDict" resultType="com.penghy.server.bean.DrugDict1"
             parameterType="com.penghy.server.bean.DrugDict1">
-        select *,increment_id incrementId,drug_Chinese_name drugChineseName from si_drug_dict_phy where search_code1 is
-        null or search_code1=''
+        select *, increment_id incrementId, drug_Chinese_name drugChineseName
+        from si_drug_dict_phy
+        where search_code1 is null
+           or search_code1 = ''
 
         -- SELECT
         -- *,
@@ -611,6 +633,27 @@
             <if test="aae013 != null">
                 #{aae013},
             </if>
+        </trim>
+    </insert>
+
+    <select id="getincrementId" resultType="string">
+        select old_id as insureOrderCode
+        from zzs_table2 where increment_id > 8003808
+    </select>
+
+    <insert id="insertPRK" parameterType="string">
+        INSERT INTO zzs_table3
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="updateField != null">
+                update_field,
+            </if>
+
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="updateField != null">
+                #{updateField},
+            </if>
+
         </trim>
     </insert>
 

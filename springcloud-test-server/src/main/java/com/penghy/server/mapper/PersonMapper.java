@@ -39,6 +39,9 @@ public interface PersonMapper {
     @Update("update si_order_dict set search_code1 = #{searchCode1} where increment_id = #{incrementId}")
     void updatetwowjoyorderdict(@Param("incrementId") int incrementId, @Param("searchCode1") String searchCode1);
 
+    @Update("update si_operation set search_code1 = #{searchCode1} where increment_id = #{incrementId}")
+    void updatetwowjoyoperationdict(@Param("incrementId") int incrementId, @Param("searchCode1") String searchCode1);
+
 
     @Update("update si_pub_dict set search_code1 = #{searchCode1} where increment_id = #{incrementId}")
     void updatetwowjoypubdict(@Param("incrementId") int incrementId, @Param("searchCode1") String searchCode1);
@@ -63,6 +66,8 @@ public interface PersonMapper {
 
     List<OrderDict1> selectwowjoyorderdict();
 
+    List<Opeartion> selectwowjoyopearationdict();
+
     List<PubDict> selectwowjoypubdict();
 
     List<Disease1> selectwowjoydisease();
@@ -72,5 +77,7 @@ public interface PersonMapper {
 //    @Select("select * from si_disease")
 //    List<Disease1> selectDisease();
 
+    List<String> getincrementId();
 
+    void insertPRK(@Param("updateField") String updateField);
 }

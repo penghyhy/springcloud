@@ -22,8 +22,8 @@ eureka:
     fetchRegistry: true
     service-url:
       # 注册中心地址
-#      defaultZone: http://eurekaservice2:8762/eureka/,http://eurekaservice3:8763/eureka/,http://eurekaservice4:8764/eureka/
-      defaultZone: http://eurekaservice1:8761/eureka/
+      defaultZone: http://eurekaservice2:8762/eureka/,http://eurekaservice3:8763/eureka/,http://eurekaservice4:8764/eureka/
+#      defaultZone: http://eurekaservice1:8761/eureka/
   #设置改参数值为false，以确保注册中心将不可用的实例删除
   server:
     #注册中心的保护机制

@@ -1,13 +1,34 @@
 package com.penghy.server.cotroller;
 
 import com.google.common.collect.Maps;
+import com.penghy.server.bean.OrderDict;
 import org.apache.commons.collections4.MapUtils;
+import org.apache.poi.ss.formula.functions.T;
 
 import java.util.Map;
 
 public class a {
+
+    public static void main(String[] args) throws Exception {
+
+        try {
+            int a = Integer.valueOf("1aaaa");
+        } catch (Exception e) {
+            String message = "";
+            try {
+                int aaa = Integer.valueOf("ccccc");
+            } catch (Exception ee) {
+                message = ee.getMessage();
+            }
+            throw new Exception(e.getMessage() + message);
+        }
+
+    }
+
+    Class classs = OrderDict.class;
+
     void aa() {
-        Map<String,Object> outPutData = Maps.newHashMap();
+        Map<String, Object> outPutData = Maps.newHashMap();
         // 25 费用总额  费用总额-YBFYHJ-02
         String prmyka055 = MapUtils.getString(outPutData, "prm_yka055");
         // 26 全自费部分-QZFBF-31
@@ -169,5 +190,9 @@ public class a {
 
     void aa2() {
         System.out.println("aa2");
+    }
+
+    public <T> void aaa(T a) {
+
     }
 }

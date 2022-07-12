@@ -12,7 +12,7 @@ public class DirectRabbitConfig {
     //队列 起名：TestDirectQueue
     @Bean
     public Queue TestDirectQueue() {
-        return new Queue("TestDirectQueue",true);
+        return new Queue("TestDirectQueue", true);
     }
 
     //Direct交换机 起名：TestDirectExchange

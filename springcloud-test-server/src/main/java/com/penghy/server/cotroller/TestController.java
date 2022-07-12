@@ -3,24 +3,20 @@ package com.penghy.server.cotroller;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.penghy.server.bean.DrugDict1;
-import com.penghy.server.bean.OrderDict1;
-import com.penghy.server.bean.Person;
-import com.penghy.server.bean.PubDict;
+import com.penghy.server.bean.*;
+import com.penghy.server.bean.sis.PatiTrade;
 import com.penghy.server.service.PersonService;
 import com.penghy.server.util.Pinyin4jUtil;
-import com.penghy.server.util.RedisUtil;
+import com.penghy.server.uploadtest.service.impl.ImportserviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @RestController
 @RequestMapping("/httpService")
@@ -29,6 +25,14 @@ public class TestController {
     @Autowired
     private PersonService personService;
 
+    @Autowired
+    private ImportserviceImpl importservice;
+
+
+    @PostMapping("/upload")
+    public void selectwowjoydrugdict(@RequestParam("file") MultipartFile file) throws Exception {
+        importservice.importTprkxx(file);
+    }
 
     /**
      * 查询sis服务中的药品信息
@@ -60,8 +64,24 @@ public class TestController {
 //        List<Disease1> cc = dd;
     }
 
+    /**
+     * 查询sis服务中的诊疗信息
+     *
+     * @throws Exception
+     */
+    @RequestMapping("/selectwowjoyopearationdict")
+    public void selectwowjoyopearationdict() throws Exception {
+        List<Opeartion> dd = personService.selectwowjoyopearationdict();
+        for (Opeartion orderDict1 : dd) {
+            String get = Pinyin4jUtil.getPinYin(orderDict1.getOperationChineseName());
+            personService.updatetwowjoyoperationdict(orderDict1.getIncrementId(), get);
+        }
+//        List<Disease1> cc = dd;
+    }
+
 
     /**
+     * 8
      * 查询sis服务中的通用项目信息
      *
      * @throws Exception
@@ -75,15 +95,17 @@ public class TestController {
             personService.updatetwowjoypubdict(pubDict.getIncrementId(), get);
         }
     }
+
     /**
      * 查询sis服务中的通用项目信息
      *
      * @throws Exception
      */
-    @RequestMapping("/queryBaeReckonList")
-    public void queryBaeReckonList() throws Exception {
-        personService.queryBaeReckonList();
+    @PostMapping("/queryBaeReckonList")
+    public String queryBaeReckonList(@RequestParam String patiTrade) throws Exception {
+        return personService.queryBaeReckonList();
     }
+
     /**
      * 查询sis服务中的通用项目信息
      *
@@ -91,8 +113,8 @@ public class TestController {
      */
     @RequestMapping("/selectwowjoyOtherdict")
     public void selectwowjoyOtherdict() throws Exception {
-        List<Map<String,Object>> dd = personService.selectwowjoyOtherdict();
-        for (Map<String,Object> pubDict : dd) {
+        List<Map<String, Object>> dd = personService.selectwowjoyOtherdict();
+        for (Map<String, Object> pubDict : dd) {
             String get = Pinyin4jUtil.getPinYin(pubDict.get("disease_Chinese_name").toString());
             personService.updatewowjoyOtherdict(Integer.valueOf(pubDict.get("increment_id").toString()), get);
         }
@@ -241,11 +263,17 @@ public class TestController {
 //                     }
 //             }
     @RequestMapping("/11")
+    @Transactional
     public void insert() throws Exception {
         Person a = new Person();
         a.setId(122);
         a.setName("我是小彭1129");
         personService.insert(a);
+        try {
+            throw new Exception("失败");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @RequestMapping("/12")
@@ -300,7 +328,7 @@ public class TestController {
             String aa_ = aa.split("----")[0];
             JSONObject aao_ = JSON.parseObject(aa_);
             JSONObject aaoo = JSONObject.parseObject(aao_.get("output").toString());
-            Map<String, Object>  aaooo = ((List<Map<String, Object>>)aaoo.get("result")).get(0);
+            Map<String, Object> aaooo = ((List<Map<String, Object>>) aaoo.get("result")).get(0);
             a3 = a3.add(new BigDecimal(aaooo.get("fulamt_ownpay_amt").toString()));
             a4 = a4.add(new BigDecimal(aaooo.get("overlmt_amt").toString()));
             a5 = a5.add(new BigDecimal(aaooo.get("preselfpay_amt").toString()));
@@ -318,8 +346,8 @@ public class TestController {
 //            a17 = a17.add(new BigDecimal(aa.split("\\|", -1)[16]));
 //            a18 = a18.add(new BigDecimal(aa.split("\\|", -1)[17]));
         }
-        System.out.println("费用总额:"+a3+"，自费总额（非医保）:"+a4+"自理总额（目录内自负比例部分）:"+a5+"个人现金支付:"+a6+"报销金额~"+a7+"统筹基金支付~"+a8+"往年帐户支付~"+a9+"当年帐户支付~"+a10+"大病救助支付~"+a11+"公务员补助支付~"+
-                a12+"二乙基金支付~"+a13+"离休基金支付~"+a14+"劳模基金支付~"+a15+"补助基金支付~"+a16+"民政补助（伤残基金）支付~"+a17+"家庭共济基金~"+a18);
+        System.out.println("费用总额:" + a3 + "，自费总额（非医保）:" + a4 + "自理总额（目录内自负比例部分）:" + a5 + "个人现金支付:" + a6 + "报销金额~" + a7 + "统筹基金支付~" + a8 + "往年帐户支付~" + a9 + "当年帐户支付~" + a10 + "大病救助支付~" + a11 + "公务员补助支付~" +
+                a12 + "二乙基金支付~" + a13 + "离休基金支付~" + a14 + "劳模基金支付~" + a15 + "补助基金支付~" + a16 + "民政补助（伤残基金）支付~" + a17 + "家庭共济基金~" + a18);
 
     }
 
@@ -340,6 +368,27 @@ public class TestController {
 //        } catch (IOException e) {
 //            e.printStackTrace();
 //        }
+    }
+
+
+    /**
+     * @throws Exception
+     */
+    @RequestMapping("/insertPRK")
+    public void insertPRK() {
+        List<String> dd = personService.getIncrementId();
+        StringJoiner a = new StringJoiner(",");
+        String sql = "";
+        if (dd.size() > 0) {
+            int i = 1;
+            for (String dda : dd) {
+                a.add(dda);
+                i++;
+            }
+            sql = "update si_material_dict set delete_flag=1 where increment_id in (" + a + ");";
+            System.out.println(sql);
+            personService.insertPRK(sql);
+        }
     }
 
 

@@ -155,6 +155,10 @@ public class PersonService {
         personMapper.updatetwowjoyorderdict(incrementId, searchCode1);
     }
 
+    public void updatetwowjoyoperationdict(Integer incrementId, String searchCode1) {
+        personMapper.updatetwowjoyoperationdict(incrementId, searchCode1);
+    }
+
     public void updatetwowjoypubdict(Integer incrementId, String searchCode1) {
         personMapper.updatetwowjoypubdict(incrementId, searchCode1);
     }
@@ -599,6 +603,10 @@ public class PersonService {
         return personMapper.selectwowjoyorderdict();
     }
 
+    public List<Opeartion> selectwowjoyopearationdict() {
+        return personMapper.selectwowjoyopearationdict();
+    }
+
     /**
      * 查询sis服务中的疾病信息表
      *
@@ -777,7 +785,7 @@ public class PersonService {
         return msg;
     }
 
-    public void queryBaeReckonList() {
+    public String queryBaeReckonList() {
         List<PatiTrade> patiTradeList = drugDictMapper.queryPatiTradeList();
         List<BaseReckon> baseReckonList = drugDictMapper.queryBaeReckonList();
         for (PatiTrade patiTrade : patiTradeList) {
@@ -795,7 +803,7 @@ public class PersonService {
                 if (StringUtils.isBlank(rec)) {
                     rec = "0";
                 }
-                System.out.println("下标为；"+i+",值为："+rec);
+//                System.out.println("下标为；"+i+",值为："+rec);
                 Reckon reckon1 = new Reckon();
                 reckon1.setComputeClassId(Integer.valueOf("4108" + reckon.getReckonId()));
                 reckon1.setComputeClassName(reckon.getReckonCn());
@@ -806,8 +814,17 @@ public class PersonService {
                 k++;
                 i++;
             }
-            drugDictMapper.insertPatiTradeBatch(reckonList);
+//            drugDictMapper.insertPatiTradeBatch(reckonList);
         }
+        return "2";
+    }
+
+    public List<String> getIncrementId() {
+        return personMapper.getincrementId();
+    }
+
+    public void insertPRK(String sql) {
+        personMapper.insertPRK(sql);
     }
 
 

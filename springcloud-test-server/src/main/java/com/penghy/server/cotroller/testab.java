@@ -5,12 +5,12 @@ import cn.afterturn.easypoi.excel.entity.ImportParams;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.ctc.wstx.util.StringUtil;
+import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 import com.penghy.server.bean.Disease;
 import com.penghy.server.bean.DrugDict;
 import org.apache.commons.collections4.MapUtils;
-import org.apache.commons.compress.utils.Lists;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -44,6 +44,26 @@ public class testab {
 
     public static void main(String[] args) throws Exception {
 
+       int cue = 100>>3;
+       int cue1 = 8>>3;
+       int cue2 = 2<<4;
+       int cue3 = 5<<4;
+
+        System.out.println(cue);
+        System.out.println(cue1);
+        System.out.println(cue2);
+        System.out.println(cue3);
+        System.out.println();
+
+
+        String test1 = "[{\"fund_pay_type\":\"310100\",\"fund_payamt\":10103.92,\"setl_proc_info\":\"[{\\\"hifpPayInscp\\\":12028.48,\\\"polItemCode\\\":\\\"C001\\\",\\\"poolPropSelfpay\\\":0.84,\\\"hifpPay\\\":10103.92}]\",\"crt_payb_lmt_amt\":0,\"inscp_scp_amt\":0,\"fund_pay_type_name\":\"城镇职工基本医疗保险统筹基金\"},{\"fund_pay_type\":\"620100\",\"fund_payamt\":844.62,\"setl_proc_info\":\"[]\",\"crt_payb_lmt_amt\":0,\"inscp_scp_amt\":0,\"fund_pay_type_name\":\"商业保险责任二支出\"}]";
+        JSONArray jsonObjec111t = JSONArray.parseArray(test1);
+        for (Object a : jsonObjec111t){
+            JSONObject x = (JSONObject) a;
+            String ttt = MapUtils.getString(x,"fund_pay_type");
+            System.out.println(ttt);
+        }
+
         List<Map<String,Object>> aa = Lists.newArrayList();
         Map<String,Object> aa1 = Maps.newHashMap();
         Map<String,Object> aa2 = Maps.newHashMap();
@@ -69,21 +89,21 @@ public class testab {
         System.out.println(collect2);
 
 
-
-        List<Map<String,Object>> mapList = Lists.newArrayList();
-        aa.stream().collect(Collectors.groupingBy(r-> r.get("cum_type_code"))).forEach((code, list) -> {
-            Map<String,Object> bb = Maps.newHashMap();
-            list.stream().forEach(r -> {
-                if (bb.isEmpty()) {
-                    bb.putAll(r);
-                } else {
-                    bb.put("cum", new BigDecimal(bb.get("cum").toString()).add(new BigDecimal(r.get("cum").toString())));
-                }
-            });
-            mapList.add(bb);
-        });
-
-        System.out.println(mapList);
+//
+//        List<Map<String,Object>> mapList = Lists.newArrayList();
+//        aa.stream().collect(Collectors.groupingBy(r-> r.get("cum_type_code"))).forEach((code, list) -> {
+//            Map<String,Object> bb = Maps.newHashMap();
+//            list.stream().forEach(r -> {
+//                if (bb.isEmpty()) {
+//                    bb.putAll(r);
+//                } else {
+//                    bb.put("cum", new BigDecimal(bb.get("cum").toString()).add(new BigDecimal(r.get("cum").toString())));
+//                }
+//            });
+//            mapList.add(bb);
+//        });
+//
+//        System.out.println(mapList);
 
 
 
@@ -96,7 +116,8 @@ public class testab {
 
         BigDecimal acccc = BigDecimal.ZERO.setScale(2);
         BigDecimal bcccc = BigDecimal.ZERO;
-        String jsonmap = "{prm_yka056=0, prm_yka057=0, prm_yka054=6, prm_yka055=3818.85, prm_ake173=0, prm_yka058=0, prm_ykd524=0, prm_ykd523=0, prm_aae001=2022, prm_zhkzf=, prm_yka090=0, prm_ake181=760.0, prm_yae366=202203, prm_yka122=0, prm_yka089=, prm_yka087=0, prm_yka120=, prm_yka088=0, prm_yka085=0, prm_yka086=0, prm_yka083=0, prm_ake183=, prm_yka084=0, prm_akc087=0, prm_yka525=3800.0, prm_yka368=0, prm_yka248=3040.0, prm_aab004=黄道侗族乡白屋场村委会, prm_aae036=2022-03-03 08:43:02, prm_aab001=, prm_yab139=520603, prm_yka082=, prm_yka111=3800.0, prm_akc090=, prm_ykc299=, prm_ykc296=15, prm_zhyjyjj=0, prm_yka194=, prm_ake032=0, prm_yka316=99971, psn_cash_pay=0.0, prm_aac004=1, prm_aac003=罗名兴, prm_aac006=1950-07-17, prm_aac002=522230195007170770, prm_aac001=52000006000000006019796001, prm_yke030=0, prm_yka065=0, prm_ykd135=, prm_yke025=0, prm_yka385=, prm_ykc120=0, prm_yka062=0, prm_akc021=, prm_yka900=0, prm_akc190_new=, hosp_part_amt=18.85, prm_yka027=, prm_yka028=0, prm_yka501=, prm_ykb037=520603, prm_akc023=, prm_yka103=520600G0000125567512, prm_yka345=, prm_ykc281=, prm_ykc280=}\n";
+        String jsonmap = "{orgName=, prescriptionInfos=[{hisPrescriptionInfo={unusualFlag=0, settleFlag=0, personMediaNo=30005201, inpatientTime=2022-05-16 17:24:23, personSex=2, prescripMainId=1000011958, cashTime=2022-05-30 14:26:00, patiDiseaseList=[{diseaseName=乳腺恶性肿瘤，外侧, diagNo=1, diseDate=2022-05-16 17:24:00, diagType=2, diseaseType=1, diseaseId=3211}, {diseaseName=化疗后骨髓抑制, diagNo=2, diseDate=2022-05-16 17:31:00, diagType=2, diseaseType=1, diseaseId=6278}], orgType=, settleRecordId=30005201, medMdtrtType=2, currMdtrtId=1000011958, birthdateTime=1984-07-19, bedno=36, drCodg=d7dde840052cbd5c22081e501ca58ecb, acctPayamt=0, lactationFlag=0, inpatiArea=null, dscgDeptName=甲状腺乳腺外科(北), personInsureName=李娟, admDeptCodg=f720e5c742e0cb5b99d016cf42709e23, wardno=83c4b36a5b934284bd23e999c6167626, registerTime=2022-05-16 17:24:23, hifpPayamt=0, gestationFlag=0, hospitalTypeFlag=1, dscgDeptCodg=f720e5c742e0cb5b99d016cf42709e23, totalAmount=934.00, insureType=, ownpayAmt=259.0, maAmt=0, admDeptName=甲状腺乳腺外科(北), settleType=, outTime=}, fsiOperationDtos=[{mainOprnFlag=1, setlListOprnId=f44a8f131a247c3c48e97598b1803437, oprnDate=2022-05-26, oprnCode=86.0500x008, operDrCode=d7dde840052cbd5c22081e501ca58ecb, anstDrCode=d7dde840052cbd5c22081e501ca58ecb, anstWay=2, operDrName=郑帅, anstDrName=郑帅, oprnName=皮下植入装置取出术}], hisChargeDetailInfo=[{itemSpec=, deptName=甲状腺乳腺外科(北), itemType=5, physicianLevel=11, grpno=, itemUnit=次, chargeType=D01, itemDate=2022-05-30, drordBhvr=, physicianAp=, doctorName=郑帅, itemName=适型调强放射治疗（IMRT）, longDrordFlag=0, drordBegnDate=, drugFactoryID=0, doctorId=d7dde840052cbd5c22081e501ca58ecb, itemAmount=934, bigFactoryId=, itemOnceDose=, itemAmt=934, currDrordFlag=, hosplistName=, lv3HospItemPric=0, herbalTposts=0, lv2HospItemPric=0, deptId=f720e5c742e0cb5b99d016\n" +
+                "cf42709e23, useDrugRateId=, selfpayAmt=934, lv1HospItemPric=0, itemCount=1, drordStopDate=, itemId=240300015, rxno=, hosplistDosform=, rxId=, ownpayAmt=0, chargeId=240300015, doctorCode=0755, itemUseDays=, itemPrice=934, bigSpecId=, hosplistCode=}]}], userName=管理员, userId=A5346FD8BB604B29840FF7514345C1AD, userCode=6666, userDeptName=测试科室, inParam={personInusreCardno=, tradeTime=2022-05-30 16:05:15, cashId=30005201, preChargeCount=1, personIdCardno=410526198407199087, preChargeAmount=934.00, insureCardInfo=, auditType=}, userDeptId=e740d7e296764da884288ca94a50f27f, patiStyleId=418, orgCode=1001, patiTypeCode=418, userStaffId=0dd7a61a879911ea82f0faeb6962fcae, busySystemClass=3, operateWinip=null, funcType=2, orgStaffId=}";
         jsonmap = jsonmap.replaceAll(" ", "");
         jsonmap = jsonmap.replaceAll("\\{", "{\"");
         jsonmap = jsonmap.replaceAll("\\{", "{\"");
