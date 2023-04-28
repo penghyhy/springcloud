@@ -1,6 +1,7 @@
 package com.penghy.server.service;
 
 import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.penghy.server.bean.*;
 import com.penghy.server.bean.sis.BaseReckon;
 import com.penghy.server.bean.sis.PatiTrade;
@@ -10,6 +11,7 @@ import com.penghy.server.mapper.DrugDictTempMapper;
 import com.penghy.server.mapper.PersonMapper;
 import com.penghy.server.util.Pinyin4jUtil;
 import com.penghy.server.util.RedisUtil;
+import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
@@ -825,6 +827,24 @@ public class PersonService {
 
     public void insertPRK(String sql) {
         personMapper.insertPRK(sql);
+    }
+
+    public List<Map<String,Object>> getTradeLogs(){
+        List<Map<String,Object>> tradeLogs = drugDictTempMapper.getTradeLogs();
+        for(Map<String,Object> tradeLog:tradeLogs) {
+            String paramInfo = (String) tradeLog.get("paramInfo");
+            String resultInfo = (String) tradeLog.get("resultInfo");
+            JSONObject  pa = JSONObject.parseObject(paramInfo);
+            JSONObject  res = JSONObject.parseObject(resultInfo);
+            JSONObject  input = JSONObject.parseObject(MapUtils.getString(pa,"input"));
+            JSONObject  output = JSONObject.parseObject(MapUtils.getString(res,"output"));
+            JSONArray jsonArray = JSONArray.parseArray(output.getString(""));
+            List<Map<String,Object>> feedetail = (List<Map<String, Object>>) input.get("feedetail");
+            List<Map<String,Object>> result = (List<Map<String, Object>>) output.get("result");
+            System.out.println(result);
+        }
+
+        return tradeLogs;
     }
 
 

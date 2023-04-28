@@ -588,4 +588,9 @@
             AND id = #{id}
         </if>
     </select>
+    <!-- 单个查询 -->
+    <select id="getTradeLogs"
+            resultType="map">
+        select trade_param_info paramInfo,trade_result_info resultInfo from si_trade_logs where trade_type_code='0403-2204';
+    </select>
 </mapper>

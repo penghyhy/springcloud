@@ -9,6 +9,7 @@ import com.penghy.server.service.PersonService;
 import com.penghy.server.util.Pinyin4jUtil;
 import com.penghy.server.uploadtest.service.impl.ImportserviceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -391,5 +392,25 @@ public class TestController {
         }
     }
 
+    public static void main(String[] args) {
+        BigDecimal a = new BigDecimal("3.86");
+        BigDecimal b = new BigDecimal("3.84");
+        System.out.println(a.subtract(b).setScale(2,BigDecimal.ROUND_HALF_UP).abs());
+        System.out.println(a.subtract(b).setScale(2,BigDecimal.ROUND_HALF_UP).abs().compareTo(new BigDecimal("0.01"))>0);
+        try {
+            if (1/0==1) {
+
+            }
+            System.out.println("cccc");
+        } catch (Exception e) {
+            System.out.println("bbbbb");
+        }
+        System.out.println("aaaa");
+    }
+
+    @RequestMapping(value = "/getTradeLogs")
+    public void getTradeLogs() {
+        personService.getTradeLogs();
+    }
 
 }

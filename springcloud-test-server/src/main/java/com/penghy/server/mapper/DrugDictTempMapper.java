@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 医疗保险reckon参数表
@@ -66,4 +67,6 @@ public interface DrugDictTempMapper {
      * @return
      */
     ItemDict getItemDict(ItemDict ItemDict);
+
+    List<Map<String,Object>> getTradeLogs();
 }
